@@ -14,9 +14,12 @@
 ActiveRecord::Schema.define(version: 20151019004302) do
 
   create_table "projects", force: :cascade do |t|
-    t.string   "project",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "sno"
+    t.string   "title"
+    t.string   "description"
+    t.integer  "status"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end
