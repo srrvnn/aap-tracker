@@ -44,6 +44,7 @@ GEM
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.2.0.2)
       sass (~> 3.2)
+    bootstrap-table-rails (1.9.0)
     builder (3.2.2)
     byebug (6.0.2)
     coffee-rails (4.1.0)
@@ -147,6 +148,7 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass (~> 3.2.0)
+  bootstrap-table-rails (~> 1.8, >= 1.8.1)
   byebug
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)

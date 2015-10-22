@@ -1,2 +1,33 @@
 <h1>Manifesto Tracker</h1>
-<p>A ton of lorem ipsum crap</p>
+<!-- Progress meters -->
+<div class="row">
+  <div class="span5" id="header-meter">
+    <!-- In progress -->
+    <h4> <i class=" icon-cogs"></i> Over all promises in progress: 20 out 70</h4>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" style="width: 30%;">
+        15%
+      </div>
+    </div>
+    <!-- Achieved -->
+    <h4> <i class=" icon-ok"></i> Over all promises achieved: 10 out 70</h4>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" style="width: 15%;">
+        15%
+      </div>
+    </div>
+  </div>
+</div>
+
+<table data-toggle="table" data-url="/manifesto.json" data-cache="false" data-height="1000">
+  <thead>
+    <tr>
+      <th data-field="id">ID</th>
+      <th data-field="title">Title</th>
+      <th data-field="description">Description</th>
+      <th data-field="category">Category 1</th>
+      <th data-field="category_2">Category 2</th>
+      <th data-field="status">Completion Status</th>
+    </tr>
+  </thead>
+</table>
