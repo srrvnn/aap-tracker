@@ -7,7 +7,16 @@ class ProjectController < ApplicationController
 
   end
 
+  # view a single project detail page
   def view
+
+  end
+
+  def update
+
+  end
+
+  def delete
 
   end
 

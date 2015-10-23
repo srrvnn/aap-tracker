@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 root 'project#index'
 
+get 'project/:id' => 'project#view'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
