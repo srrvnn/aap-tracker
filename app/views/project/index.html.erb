@@ -27,11 +27,13 @@
     <td>Status</tb>
   </tr>
 <% @projects.each do |p| %>
-  <tr>
-    <td><%= p.sno %></tb>
-    <td><%= p.title %></tb>
-    <td><%= p.description %></tb>
-    <td>Not Started</td>
-  </tr>
+  <%= link_to() do %>
+    <tr>
+      <td><%= p.sno %></tb>
+      <td><%= p.title %></tb>
+      <td><%= p.description %></tb>
+      <td>Not Started</td>
+    </tr>
+  <% end %>
 <% end %>
 </table>

@@ -16,7 +16,6 @@ class ProjectController < ApplicationController
   # view a single project detail page
   def view
   	@project = Project.find(params[:id])
-  	#TODO: add a form
   end
 
   def update
