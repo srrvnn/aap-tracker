@@ -2,7 +2,17 @@ Rails.application.routes.draw do
 
 root 'project#index'
 
-get 'project/:id' => 'project#view'
+get 'project/new' => 'project#new'
+
+get 'project/create' => 'project#create'
+
+get 'project/update/:id' => 'project#update'
+
+get 'project/delete/:id' => 'project#delete'
+
+get 'project/view/:id' => 'project#view'
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

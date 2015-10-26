@@ -1,0 +1,15 @@
+<h1>Create a new Project</h1>
+
+<%= form_tag do %>
+	<%= label_tag(:sno, "ID number") %>
+  	<%= text_field_tag(:sno) %>
+
+  	<%= label_tag(:title, "Project Title") %>
+  	<%= text_field_tag(:title) %>
+
+	<%= label_tag(:description, "Project Description") %>
+  	<%= text_field_tag(:description) %>
+
+  	<%= submit_tag("Save") %>
+
+<% end %>
