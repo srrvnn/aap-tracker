@@ -7,9 +7,9 @@ class ProjectController < ApplicationController
   	@project = Project.new
   	# retrieve data from form
   end
-  
+
   def create
-  	
+
   end
 
 
@@ -21,7 +21,7 @@ class ProjectController < ApplicationController
 
   def update
   	@project = Project.find(params[:id])
-  	# TODO: 
+  	# TODO:
   end
 
   def delete

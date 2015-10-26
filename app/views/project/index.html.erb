@@ -19,15 +19,19 @@
   </div>
 </div>
 
-<table data-toggle="table" data-url="/manifesto.json" data-cache="false" data-height="1000">
-  <thead>
-    <tr>
-      <th data-field="id">ID</th>
-      <th data-field="title">Title</th>
-      <th data-field="description">Description</th>
-      <th data-field="category">Category 1</th>
-      <th data-field="category_2">Category 2</th>
-      <th data-field="status">Completion Status</th>
-    </tr>
-  </thead>
+<table class="table">
+  <tr>
+    <td>S No</tb>
+    <td>Title</tb>
+    <td>Description</tb>
+    <td>Status</tb>
+  </tr>
+<% @projects.each do |p| %>
+  <tr>
+    <td><%= p.sno %></tb>
+    <td><%= p.title %></tb>
+    <td><%= p.description %></tb>
+    <td>Not Started</td>
+  </tr>
+<% end %>
 </table>
