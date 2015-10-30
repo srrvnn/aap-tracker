@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 root 'project#index'
 
-get 'project/new' => 'project#new'
+post 'project/new' => 'project#new'
 
 get 'project/create' => 'project#create'
 

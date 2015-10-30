@@ -6,6 +6,11 @@ class ProjectController < ApplicationController
   def new
   	@project = Project.new
   	# retrieve data from form
+    @project.sno = params[:sno]
+    @project.title = params[:title]
+    @project.description = params[:description]
+    @project.save
+    redirect_to action: "index"
   end
 
   def create
