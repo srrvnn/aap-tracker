@@ -4,8 +4,11 @@ class ProjectController < ApplicationController
   end
 
   def new
-  	@project = Project.new
-  	# retrieve data from form
+
+  end
+
+  def create
+    @project = Project.new
     @project.sno = params[:sno]
     @project.title = params[:title]
     @project.description = params[:description]
@@ -13,22 +16,16 @@ class ProjectController < ApplicationController
     redirect_to action: "index"
   end
 
-  def create
-
-  end
-
-
-  # view a single project detail page
-  def view
+  def show
   	@project = Project.find(params[:id])
   end
 
   def update
   	@project = Project.find(params[:id])
-  	# TODO:
+
   end
 
-  def delete
+  def destroy
   	Project.find(params[:id]).destroy
   	redirect_to action: "index"
   end
