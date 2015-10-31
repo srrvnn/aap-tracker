@@ -1,0 +1,7 @@
+<h3>Updates for Project <%= @project.id %></h3>
+
+<% @updates.each do |u| %>
+  <h4><%= u.title %></h4>
+  <p><%= u.description %></p>
+  <p><%= u.url %></p>
+<% end %>

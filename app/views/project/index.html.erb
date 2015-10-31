@@ -27,13 +27,11 @@
     <td>Status</tb>
   </tr>
 <% @projects.each do |p| %>
-  <%= link_to() do %>
-    <tr>
-      <td><%= p.sno %></tb>
-      <td><%= p.title %></tb>
-      <td><%= p.description %></tb>
-      <td>Not Started</td>
-    </tr>
-  <% end %>
+  <tr onclick="location.href='<%= project_path(p.id) %>'">
+    <td><%= p.sno %></tb>
+    <td><%= p.title %></tb>
+    <td><%= p.description %></tb>
+    <td>Not Started</td>
+  </tr>
 <% end %>
 </table>

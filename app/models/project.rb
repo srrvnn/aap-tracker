@@ -3,5 +3,4 @@ class Project < ActiveRecord::Base
   has_many :updates
   validates :sno, uniqueness: true
 
-  
 end

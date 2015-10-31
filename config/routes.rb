@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
 root 'project#index'
-resources :project
+resources :project do
+  resources :update
+end
 
 
 
