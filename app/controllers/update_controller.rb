@@ -6,11 +6,12 @@ class UpdateController < ApplicationController
   end
 
   def new
-
+    @project = Project.find(params[:project_id])
   end
 
   def create
-    @update = Update.new
+    @update = Update.new update_params
+    @update.save
     redirect_to action: "index"
   end
 
@@ -20,7 +21,6 @@ class UpdateController < ApplicationController
 
   def update
   	@update = Update.find(params[:id])
-
   end
 
   def destroy
@@ -28,4 +28,7 @@ class UpdateController < ApplicationController
   	redirect_to action: "index"
   end
 
+  def update_params
+    params.permit(:title, :url, :description, :project_id)
+  end
 end

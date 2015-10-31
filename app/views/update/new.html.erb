@@ -1,0 +1,15 @@
+<h1>New Update for Project <%= @project.sno %></h1>
+
+<%= form_tag(controller: "update", action: "create", method: "post") do %>
+	<%= label_tag(:title, "Update Title") %>
+  	<%= text_field_tag(:title) %>
+
+  	<%= label_tag(:url, "URL") %>
+  	<%= text_field_tag(:url) %>
+
+	<%= label_tag(:description, "Update Description") %>
+  	<%= text_field_tag(:description) %>
+
+  	<%= submit_tag("Save") %>
+
+<% end %>
