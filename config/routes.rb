@@ -14,6 +14,10 @@ post 'project/delete/:id' => 'project#delete'
 
 get 'project/view/:id' => 'project#view'
 
+resources :project do
+  resources :update
+end
+
 
 
   # Example of regular route:

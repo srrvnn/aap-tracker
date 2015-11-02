@@ -4,7 +4,8 @@ class CreateUpdates < ActiveRecord::Migration
       t.string :title
       t.string :url
       t.text :description
-      t.datetime :last_updated  
+      t.references :project
+      t.datetime :last_updated
       t.timestamps null: false
     end
   end

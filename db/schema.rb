@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20151019201907) do
     t.string   "title"
     t.string   "url"
     t.text     "description"
+    t.integer  "project_id"
     t.datetime "last_updated"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
