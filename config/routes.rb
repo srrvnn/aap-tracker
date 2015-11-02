@@ -6,9 +6,11 @@ post 'project/new' => 'project#new'
 
 get 'project/create' => 'project#create'
 
-get 'project/update/:id' => 'project#update'
+get 'project/edit/:id' => 'project#edit'
 
-get 'project/delete/:id' => 'project#delete'
+post 'project/update/:id' => 'project#update'
+
+post 'project/delete/:id' => 'project#delete'
 
 get 'project/view/:id' => 'project#view'
 

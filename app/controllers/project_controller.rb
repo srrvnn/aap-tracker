@@ -5,7 +5,6 @@ class ProjectController < ApplicationController
 
   def new
   	@project = Project.new
-  	# retrieve data from form
     @project.sno = params[:sno]
     @project.title = params[:title]
     @project.description = params[:description]
@@ -23,9 +22,17 @@ class ProjectController < ApplicationController
   	@project = Project.find(params[:id])
   end
 
+  def edit
+    @project = Project.find(params[:id])
+  end
+
   def update
   	@project = Project.find(params[:id])
-  	# TODO:
+  	@project.sno = params[:sno]
+    @project.title = params[:title]
+    @project.description = params[:description]
+    @project.save
+    redirect_to action: "index"
   end
 
   def delete
