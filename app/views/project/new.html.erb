@@ -1,14 +1,14 @@
 <h1>Create a new Project</h1>
 
-<%= form_tag(controller: "project", action: "create", method: "post") do %>
+<%= form_for @project, url: {:action => :create} , :html=>{:method=>:post} do |f| %>
 	<%= label_tag(:sno, "ID number") %>
-  	<%= text_field_tag(:sno) %>
+  	<%= f.text_field :sno %>
 
   	<%= label_tag(:title, "Project Title") %>
-  	<%= text_field_tag(:title) %>
+  	<%= f.text_field :title %>
 
 	<%= label_tag(:description, "Project Description") %>
-  	<%= text_field_tag(:description) %>
+  	<%= f.text_field :description %>
 
   	<%= submit_tag("Save") %>
 

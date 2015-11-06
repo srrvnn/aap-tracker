@@ -1,15 +1,15 @@
 <!-- http://localhost:3000/project/edit/200 -->
 <h1>Edit Project <%= @project.sno %></h1>
 
-<%= form_tag(controller: "project", action: "update", method: "post") do %>
+<%= form_for @project, url: {action: "update"} , :html=>{:method=>:put} do |f| %>
 	<%= label_tag(:sno, "ID number") %>
-  	<%= text_field_tag(:sno, @project.sno) %>
+  	<%= f.text_field :sno %>
 
   	<%= label_tag(:title, "Project Title") %>
-  	<%= text_field_tag(:title, @project.title) %>
+  	<%= f.text_field :title %>
 
 	<%= label_tag(:description, "Project Description") %>
-  	<%= text_field_tag(:description, @project.description) %>
+  	<%= f.text_field :description %>
 
   	<%= submit_tag("Save") %>
 

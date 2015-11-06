@@ -2,18 +2,6 @@ Rails.application.routes.draw do
 
 root 'project#index'
 
-post 'project/new' => 'project#new'
-
-get 'project/create' => 'project#create'
-
-get 'project/edit/:id' => 'project#edit'
-
-post 'project/update/:id' => 'project#update'
-
-post 'project/delete/:id' => 'project#delete'
-
-get 'project/view/:id' => 'project#view'
-
 resources :project do
   resources :update
 end

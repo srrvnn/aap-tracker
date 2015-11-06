@@ -5,20 +5,18 @@ class ProjectController < ApplicationController
 
   def new
   	@project = Project.new
-
   end
 
   def create
-    @project = Project.new
-    @project.sno = params[:sno]
-    @project.title = params[:title]
-    @project.description = params[:description]
+    @project = Project.new project_params
     @project.save
     redirect_to action: "index"
   end
 
   def show
   	@project = Project.find(params[:id])
+    @updates = @project.updates
+    puts @updates
   end
 
   def edit
@@ -27,16 +25,17 @@ class ProjectController < ApplicationController
 
   def update
   	@project = Project.find(params[:id])
-  	@project.sno = params[:sno]
-    @project.title = params[:title]
-    @project.description = params[:description]
-    @project.save
+  	@project.update_attributes project_params
     redirect_to action: "index"
   end
 
   def destroy
   	Project.find(params[:id]).destroy
   	redirect_to action: "index"
+  end
+
+  def project_params
+    params.require(:project).permit(:sno, :title, :description)
   end
 
 end
