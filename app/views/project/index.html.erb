@@ -21,10 +21,13 @@
 
 <table class="table">
   <tr>
-    <td>S No</tb>
+    <td>SNo</tb>
     <td>Title</tb>
     <td>Description</tb>
     <td>Status</tb>
+    <% if user_signed_in? %>
+      <td></tb>
+    <% end %>
   </tr>
 <% @projects.each do |p| %>
   <tr onclick="location.href='<%= project_path(p.id) %>'">
@@ -32,6 +35,9 @@
     <td><%= p.title %></tb>
     <td><%= p.description %></tb>
     <td>Not Started</td>
+    <% if user_signed_in? %>
+      <td><a href="#" class="btn btn-danger" role="button">Delete</a></tb>
+    <% end %>
   </tr>
 <% end %>
 </table>

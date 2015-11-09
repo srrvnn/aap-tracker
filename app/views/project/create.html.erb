@@ -1,15 +1,15 @@
 <% if user_signed_in? %>
-	<h1>Edit Project <%= @project.sno %></h1>
+	<h1>Create a new Project</h1>
 
-	<%= form_for @project, url: {action: "update"} , :html=>{:method=>:put} do |f| %>
+	<%= form_tag(controller: "project", action: "new", method: "post") do %>
 		<%= label_tag(:sno, "ID number") %>
-	  	<%= f.text_field :sno %>
+	  	<%= text_field_tag(:sno) %>
 
 	  	<%= label_tag(:title, "Project Title") %>
-	  	<%= f.text_field :title %>
+	  	<%= text_field_tag(:title) %>
 
 		<%= label_tag(:description, "Project Description") %>
-	  	<%= f.text_field :description %>
+	  	<%= text_field_tag(:description) %>
 
 	  	<%= submit_tag("Save") %>
 
