@@ -1,5 +1,6 @@
 class UpdateController < ApplicationController
-
+    before_action :authenticate_user!, only: [:new, :create, :edit, :delete]
+    
   def index
     @project = Project.find(params[:project_id])
     @updates = @project.updates
