@@ -1,19 +1,22 @@
 <% if user_signed_in? %>
-	<h1>Edit Project <%= @project.sno %></h1>
+<h1>Edit Project <%= @project.sno %></h1>
 
-	<%= form_for @project, url: {action: "update"} , :html=>{:method=>:put} do |f| %>
-		<%= label_tag(:sno, "ID number") %>
-	  	<%= f.text_field :sno %>
+<%= form_for @project, url: {action: "update"} , :html=>{:method=>:put} do |f| %>
+    <div class="form-group">
+        <%= label_tag(:sno, "ID number") %>
+        <%= f.text_field :sno, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+        <%= label_tag(:title, "Project Title") %>
+        <%= f.text_field :title, :class => "form-control" %>
+    </div>
+    <div class="form-group">
+        <%= label_tag(:description, "Project Description") %>
+        <%= f.text_area :description, :class => "form-control" %>
+    </div>
+    <%= submit_tag("Save", class: "btn btn-default") %>
 
-	  	<%= label_tag(:title, "Project Title") %>
-	  	<%= f.text_field :title %>
-
-		<%= label_tag(:description, "Project Description") %>
-	  	<%= f.text_field :description %>
-
-	  	<%= submit_tag("Save") %>
-
-	<% end %>
+<% end %>
 <% else %>
 	<h3>You do not have access to this page.</h3>
 <% end %>

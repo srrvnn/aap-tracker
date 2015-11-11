@@ -1,5 +1,5 @@
 <a href="/" class="btn btn-info" role="button">Go back to Projects</a>
-<h1><%= @project.title %></h1>
+<h1><%= @project.title %> - <%= link_to "Edit", controller: "project", action: "edit", id: @project.id %></h1>
 <h4>Status: <%= @project.status %></h4>
 <p><%= @project.description %></p>
 
