@@ -5,6 +5,7 @@
 
 <h4>Updates</h4>
 
+<%= link_to "Add Update", controller: "update", action: "new", project_id: @project.id %>
 <% @updates.each do |u| %>
 
 	<%= u.title %>
