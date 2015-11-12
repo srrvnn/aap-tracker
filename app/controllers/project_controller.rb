@@ -1,10 +1,13 @@
 class ProjectController < ApplicationController
+  helper ProjectHelper
+    
   def index
     @projects = Project.all
   end
 
   def new
   	@project = Project.new
+    @statuses = Project::STATUSES
   end
 
   def create
@@ -16,11 +19,11 @@ class ProjectController < ApplicationController
   def show
   	@project = Project.find(params[:id])
     @updates = @project.updates
-    puts @updates
   end
 
   def edit
     @project = Project.find(params[:id])
+    @statuses = Project::STATUSES
   end
 
   def update
@@ -33,9 +36,8 @@ class ProjectController < ApplicationController
   	Project.find(params[:id]).destroy
   	redirect_to action: "index"
   end
-
+  
   def project_params
-    params.require(:project).permit(:sno, :title, :description)
+    params.require(:project).permit(:sno, :title, :description, :status)
   end
-
 end

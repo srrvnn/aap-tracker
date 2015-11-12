@@ -2,19 +2,23 @@
 <h1>Edit Project <%= @project.sno %></h1>
 
 <%= form_for @project, url: {action: "update"} , :html=>{:method=>:put} do |f| %>
-    <div class="form-group">
-        <%= label_tag(:sno, "ID number") %>
-        <%= f.text_field :sno, :class => "form-control" %>
-    </div>
-    <div class="form-group">
-        <%= label_tag(:title, "Project Title") %>
-        <%= f.text_field :title, :class => "form-control" %>
-    </div>
-    <div class="form-group">
-        <%= label_tag(:description, "Project Description") %>
-        <%= f.text_area :description, :class => "form-control" %>
-    </div>
-    <%= submit_tag("Save", class: "btn btn-default") %>
+<div class="form-group">
+    <%= label_tag(:sno, "ID number") %>
+    <%= f.text_field :sno, :class => "form-control" %>
+</div>
+<div class="form-group">
+    <%= label_tag(:title, "Project Title") %>
+    <%= f.text_field :title, :class => "form-control" %>
+</div>
+<div class="form-group">
+    <%= label_tag(:description, "Project Description") %>
+    <%= f.text_area :description, :class => "form-control" %>
+</div>
+<div class="form-group">
+  <%= label_tag(:status, "Status") %>
+  <%= f.select :status, @statuses, {}, {:class => "form-control"}%>
+</div>
+  <%= submit_tag("Save", class: "btn btn-default") %>
 
 <% end %>
 <% else %>

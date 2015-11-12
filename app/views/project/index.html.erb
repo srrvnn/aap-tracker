@@ -30,10 +30,10 @@
   </tr>
 <% @projects.each do |p| %>
   <tr onclick="location.href='<%= project_path(p.id) %>'">
-    <td><%= p.sno %></tb>
-    <td><%= p.title %></tb>
-    <td><%= p.description %></tb>
-    <td>Not Started</td>
+    <td><%= p.sno %></td>
+    <td><%= p.title %></td>
+    <td><%= p.description %></td>
+    <td><%= format_status(p.status) %></td>
     <% if user_signed_in? %>
       <td><a href="#" class="btn btn-danger" role="button">Delete</a></tb>
     <% end %>
