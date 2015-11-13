@@ -33,7 +33,7 @@ class ProjectController < ApplicationController
   end
 
   def destroy
-  	Project.find(params[:id]).destroy
+  	Project.delete(params[:id])
   	redirect_to action: "index"
   end
   
