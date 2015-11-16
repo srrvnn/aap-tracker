@@ -3,6 +3,11 @@ class ProjectController < ApplicationController
     
   def index
     @projects = Project.all
+    @num_total = Project.count
+    @num_in_progress = Project.where("status = ?", Project::STATUSES["In Progress"]).count
+    @num_partially_fulfilled = Project.where("status = ?", Project::STATUSES["Partially Fulfilled"]).count
+    @num_fulfilled = Project.where("status = ?", Project::STATUSES["Fulfilled"]).count
+
   end
 
   def new
