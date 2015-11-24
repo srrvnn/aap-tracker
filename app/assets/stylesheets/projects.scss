@@ -1,0 +1,107 @@
+// Place all the styles related to the project controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.project-progress {
+    overflow: hidden;
+    height: 60px;
+    margin: 20px 0;
+    background-color: #D8D8D8;
+    border-radius: 4px;
+}
+
+.project-progress-bar {
+  color:white;
+  font-size: 18px;
+  float: left;
+  height: 100%;
+  line-height: 60px;
+  overflow: visible;
+}
+
+.project-progress-bar span {
+  display: block;
+  white-space: nowrap;
+}
+
+.banner {
+  height: 200px;
+  background-color: #D8D8D8;
+}
+
+.title {
+  position: relative;
+  top: 60px;
+}
+
+.byline {
+  text-align: center;
+}
+
+.project-title {
+  max-width: 160px;
+  min-width: 200px;
+}
+
+.project-description {
+  white-space: nowrap; 
+  width: 600px;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
+
+.project-status {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.project-table td, .project-table th {
+  vertical-align: middle;
+  height: 80px;
+  border-bottom: 1px solid gainsboro;
+  padding: 0 16px;
+}
+
+.status-cell {
+  min-width: 60px;
+}
+
+.red {
+  color: #E06171;
+}
+
+.yellow {
+  color: #E8D806;
+}
+
+.green {
+  color: #4DD5B7;
+}
+
+.blue {
+  color: #68A6EE;
+}
+
+.background-red {
+  background-color: #E06171;
+}
+
+.background-yellow {
+  background-color: #E8D806;
+}
+
+.background-green {
+  background-color: #4DD5B7;
+}
+
+.background-blue {
+  background-color: #68A6EE;
+}
