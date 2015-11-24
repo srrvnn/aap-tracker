@@ -11,6 +11,7 @@
 <!-- Progress meters -->
 <div class="container-fluid">
     <!-- In progress -->
+  <div class="col-md-10 col-md-offset-1">
     <div class="project-progress">
       <div class="project-progress-bar background-yellow" style="width: <%= @num_in_progress * 100 / @num_total %>%;">
         <span>IN PROGRESS <%= @num_in_progress * 100 / @num_total %> %</span>
@@ -31,15 +32,17 @@
         <span>FULFILLED <%= @num_fulfilled  * 100 / @num_total %> %</span>
       </div>
     </div>
+  </div>
 </div>
 
 <div class="container-fluid">
+  <div class="col-md-10 col-md-offset-1">
   <table class="project-table table-hover">
     <thead>
       <tr>
-        <th class="project-title">Title</th>
-        <th class="project-description">Description</th>
-        <th class="status-cell">Status</th>
+        <th class="project-title col-md-2">Title</th>
+        <th class="project-description col-md-6">Description</th>
+        <th class="status-cell col-md-2">Status</th>
         <% if user_signed_in? %>
           <th></th>
         <% end %>
@@ -48,9 +51,9 @@
   <tbody>
   <% @projects.each do |p| %>
     <tr>
-      <td class="project-title"><%= link_to p.title, project_path(p.id) %></td>
-      <td><div class="project-description"><%= p.description %></div></td>
-      <td class="status-cell"><span class="project-status background-<%= status_color(p.status) %>"></span></td>
+      <td class="project-title col-md-3"><%= link_to p.title, project_path(p.id) %></td>
+      <td class="col-md-6"><%= truncate_description(p.description) %></td>
+      <td class="status-cell col-md-1"><span class="project-status background-<%= status_color(p.status) %>"></span></td>
       <% if user_signed_in? %>
         <td><%= link_to "Delete", project_path(p.id), method: "delete", class: "btn btn-danger", role: "button" %></tb>
       <% end %>
@@ -59,6 +62,7 @@
   </tbody>
 
   </table>
+  </div>
 </div>
 
 <div id="disqus_thread"></div>

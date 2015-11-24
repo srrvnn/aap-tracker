@@ -39,15 +39,10 @@
   text-align: center;
 }
 
-.project-title {
-  max-width: 240px;
-  min-width: 160px;
-}
 
 .project-description {
   white-space: nowrap; 
-  min-width: 400px;
-  max-width: 600px;
+  max-width: 500px;
   overflow: hidden;
   text-overflow: ellipsis; 
 }

@@ -7,4 +7,7 @@ module ProjectsHelper
     status ? Project::STATUS_COLORS[status] : 'red'
   end
   
+  def truncate_description(description)
+    description.split(".")[0] + "."
+  end
 end
