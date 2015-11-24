@@ -1,34 +1,42 @@
+<div class="container-fluid banner">
+  <div class="title">
+    <h1>MANIFESTO TRACKER</h1>
+    <div class="byline">
+    <p>They've made 70 promises. <br/>
+    Track them here.</p>
+    </div>
+  </div>
+
+</div>
 <!-- Progress meters -->
 <div class="container-fluid">
-  <div class="row">
-      <!-- In progress -->
-      <h4> <i class=" icon-cogs"></i> Overall promises in progress: <%= @num_in_progress %> out of <%= @num_total %></h4>
-      <div class="progress">
-        <div class="progress-bar progress-bar-warning" role="progressbar" style="width: <%= @num_in_progress * 100 / @num_total %>%;">
-          <%= @num_in_progress * 100 / @num_total %>%
-        </div>
+    <!-- In progress -->
+    <h4> <i class=" icon-cogs"></i> Overall promises in progress: <%= @num_in_progress %> out of <%= @num_total %></h4>
+    <div class="progress">
+      <div class="progress-bar progress-bar-warning" role="progressbar" style="width: <%= @num_in_progress * 100 / @num_total %>%;">
+        <%= @num_in_progress * 100 / @num_total %>%
       </div>
+    </div>
 
-      <!-- Partially fulfilled -->
-      <h4> <i class=" icon-cogs"></i> Overall promises partially fulfilled: <%= @num_partially_fulfilled %> out of <%= @num_total %></h4>
-      <div class="progress">
-        <div class="progress-bar progress-bar-info" role="progressbar" style="width: <%= @num_partially_fulfilled * 100 / @num_total %>%;">
-          <%= @num_partially_fulfilled * 100 / @num_total %>%
-        </div>
+    <!-- Partially fulfilled -->
+    <h4> <i class=" icon-cogs"></i> Overall promises partially fulfilled: <%= @num_partially_fulfilled %> out of <%= @num_total %></h4>
+    <div class="progress">
+      <div class="progress-bar progress-bar-info" role="progressbar" style="width: <%= @num_partially_fulfilled * 100 / @num_total %>%;">
+        <%= @num_partially_fulfilled * 100 / @num_total %>%
       </div>
+    </div>
 
-      <!-- Achieved -->
-      <h4> <i class=" icon-ok"></i> Overall promises achieved: <%= @num_fulfilled %> out <%= @num_total %></h4>
-      <div class="progress">
-        <div class="progress-bar progress-bar-success" role="progressbar" style="width: <%= @num_fulfilled * 100 / @num_total %>%;">
-          <%= @num_fulfilled  * 100 / @num_total %>%
-        </div>
+    <!-- Achieved -->
+    <h4> <i class=" icon-ok"></i> Overall promises achieved: <%= @num_fulfilled %> out <%= @num_total %></h4>
+    <div class="progress">
+      <div class="progress-bar progress-bar-success" role="progressbar" style="width: <%= @num_fulfilled * 100 / @num_total %>%;">
+        <%= @num_fulfilled  * 100 / @num_total %>%
       </div>
-  </div>
+    </div>
 </div>
 
 <div class="container-fluid">
-  <table>
+  <table class="project-table table-hover">
     <thead>
       <tr>
         <th class="project-title">Title</th>
