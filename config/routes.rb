@@ -2,10 +2,11 @@ Rails.application.routes.draw do
 
 devise_for :users
 
-root 'project#index'
+root 'projects#landing'
 
-resources :project do
-  resources :update
+
+resources :projects do
+  resources :updates
 end
 
 

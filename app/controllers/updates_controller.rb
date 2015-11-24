@@ -1,4 +1,4 @@
-class UpdateController < ApplicationController
+class UpdatesController < ApplicationController
     before_action :authenticate_user!, only: [:new, :create, :edit, :delete]
     
   def index
