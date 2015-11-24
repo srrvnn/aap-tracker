@@ -7,4 +7,6 @@ class Project < ActiveRecord::Base
   
   STATUS_STRINGS = { 1=> 'Not Started', 2 => 'In Progress', 3 => 'Partially Fulfilled', 4 => 'Completed' }
   
+  STATUS_COLORS = { 1=> 'red', 2 => 'yellow', 3 => 'blue', 4 => 'green' }
+  
 end
