@@ -1,14 +1,39 @@
 <div id="landing" class="page">
-  <h1 class="logo">MANIFESTO TRACKER</h1>
+  <%=image_tag("aap.jpg", alt: "New Delhi Citizens", id:"delhi-citizens")%>
+  <h1 id="landing-title">MANIFESTO TRACKER</h1>
   <a id="enter-button" href="<%= projects_path %>">ENTER</a>
 </div>
 <div id="about" class="page">
-  <h2 class="title">About</h2>
-  <image></image>
-  <image></image>
-  <p>This Manifesto Tracker is a project of the Aam Aadmi Party-led Government of Delhi. It was built to keep track of the promises made by the government in their election manifesto. The manifesto tracker will be used by the government to inform the citizens of work in progress and get feedback on finished projects. This will truly democratize the political system, make government accountable to its people and make politics mean more than just elections. This is a next generation tool to ensure political accountability in Delhi.</p>
-  
+  <h2 class="title">ABOUT</h2>
+  <div id="about-logos">
+	  <%=image_tag("logo.png", alt: "New Delhi Government Logo", id:"delhi-logo", class:"logo")%>
+	  <%=image_tag("stanford-logo.png", alt: "Stanford University Logo", id:"stanford-logo", class:"logo")%>
+	</div>
+  <p class="about-description">This Manifesto Tracker is a project of the Aam Aadmi Party-led Government of Delhi. It was built to keep track of the promises made by the government in their election manifesto. The manifesto tracker will be used by the government to inform the citizens of work in progress and get feedback on finished projects. This will truly democratize the political system, make government accountable to its people and make politics mean more than just elections. This is a next generation tool to ensure political accountability in Delhi.</p>
 </div>
 <div id="team" class="page">
   <h2 class="title">MEET THE TEAM</h2>
+  <div id="team">
+  	<div class="team-member">
+  		<%=image_tag("michelle.png", alt: "Michelle Guo", class:"picture")%>
+  		<div class="name">
+  			<span>MICHELLE GUO</span>
+  		</div>
+  	</div>
+  	<div class="team-member">
+  		<%=image_tag("cathy.png", alt: "Cathy Zhu", class:"picture")%>
+  		<div class="name">
+  			<span>CATHY ZHU</span>
+  		</div>
+  	</div>
+  	<div class="team-member">
+  			<%=image_tag("grace.png", alt: "Grace Wu", class:"picture")%>
+  		<div class="name">
+  			<span>GRACE WU</span>
+  		</div>
+  	</div>
+	</div>
+</div>
+<div class="page">
+	<h2 class="title">CONTACT US</h2>
 </div>
