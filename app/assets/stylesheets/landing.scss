@@ -1,6 +1,6 @@
 .page {
   width: 100%;
-  height: 750px;
+  height: 100vh;
 }
 
 .title {
@@ -14,15 +14,18 @@
 #landing {
   width: 100%;
   text-align: center;
+  background: url(aap.jpg);
+  background-size: cover;
 }
 
-#delhi-citizens {
-  width: 100%;
+
+#landing-content {
+  position: relative;
+  top: 40%;
 }
 
 #landing-title {
-  position: relative;
-  top: -9.5em;
+  margin-top: 0;
   color: white;
   font-family: 'Lato', sans-serif;
   font-size: 55px;
@@ -31,19 +34,16 @@
 }
 
 #enter-button {
+  position: relative;
+  top: 20px;
   color: white;
   border: 3px solid white;
   border-radius: 5px;
   width: 215px;
   height: 60px;
-  padding-left: 25px;
-  padding-right: 25px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px 25px;
   text-align: center;
-  position: relative;
-  top: -9.3em;
-  font-family: 'Lato', sans-serif;
+
   font-size: 35px;
   letter-spacing: 6.12px;
 }
@@ -91,7 +91,7 @@
 }
 
 /*Team*/
-#team {
+#team-container {
   position: relative;
   top: 6em;
   text-align: center;
