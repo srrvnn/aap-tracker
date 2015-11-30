@@ -4,10 +4,11 @@
   
   <h2 class="text-center"><%= @project.title %> 
     <% if user_signed_in? %>
-    - <%= link_to "Edit", controller: "project", action: "edit", id: @project.id %>
+    - <%= link_to "Edit", controller: "projects", action: "edit", id: @project.id %>
     <% end %>
   </h2>
   <h4 class="text-center <%= status_color(@project.status) %>"><%= format_status(@project.status) %></h4>
+
   <div class="col-md-10 col-md-offset-1">
     <p><%= @project.description %></p>
  
