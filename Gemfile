@@ -42,6 +42,9 @@ gem 'seed_dump'
 group :production do
   # Use postgres as the database for Active Record
   gem 'pg'
+  
+  # This is for heroku compatibility
+  gem 'rails_12factor'
 end
 
 
