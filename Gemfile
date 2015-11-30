@@ -29,10 +29,6 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 
-# for bootstrap table prototype
-# TODO: delete when transitioning to real data
-gem 'bootstrap-table-rails', '~> 1.8', '>= 1.8.1'
-
 gem 'seed_dump'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

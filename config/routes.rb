@@ -4,7 +4,6 @@ devise_for :users
 
 root 'projects#landing'
 
-
 resources :projects do
   resources :updates
 end

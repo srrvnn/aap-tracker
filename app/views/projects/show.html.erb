@@ -4,7 +4,7 @@
   
   <h2 class="text-center"><%= @project.title %> 
     <% if user_signed_in? %>
-    - <%= link_to "Edit", controller: "project", action: "edit", id: @project.id %>
+    - <%= link_to "Edit", controller: "projects", action: "edit", id: @project.id %>
     <% end %>
   </h2>
   <h4 class="text-center <%= status_color(@project.status) %>"><%= format_status(@project.status) %></h4>
@@ -13,7 +13,7 @@
   <hr/>
   <h4>Updates</h4>
   <% if user_signed_in? %>
-      <%= link_to "Add Update", controller: "update", action: "new", project_id: @project.id %>
+      <%= link_to "Add Update", controller: "updates", action: "new", project_id: @project.id %>
   <% end %>
 
   <% @updates.each do |u| %>
