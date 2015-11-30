@@ -9,26 +9,32 @@
 
 </div>
 <!-- Progress meters -->
-<div class="container-fluid">
+<div class="container-fluid" id="progress-meters">
     <!-- In progress -->
   <div class="col-md-10 col-md-offset-1">
+    <!-- Achieved -->
     <div class="project-progress">
-      <div class="project-progress-bar background-yellow" style="width: <%= @num_in_progress * 100 / @num_total %>%;">
-        <span>IN PROGRESS <%= @num_in_progress * 100 / @num_total %> %</span>
+      <div class="project-progress-bar background-blue"  style="width: <%= 20 * 100 / @num_total %>%;">
+        <span>ACHIEVED <%= 20  * 100 / @num_total %> %</span>
       </div>
     </div>
 
     <!-- Partially fulfilled -->
     <div class="project-progress">
-      <div class="project-progress-bar background-blue"  style="width: <%= @num_partially_fulfilled * 100 / @num_total %>%;">
-        <span>PARTIALLY FULFILLED <%= @num_partially_fulfilled * 100 / @num_total %> %</span>
+      <div class="project-progress-bar background-blue"  style="width: <%= 12 * 100 / @num_total %>%;">
+        <span>PARTIALLY FULFILLED <%= 12 * 100 / @num_total %> %</span>
       </div>
     </div>
 
-    <!-- Achieved -->
     <div class="project-progress">
-      <div class="project-progress-bar background-green"  style="width: <%= @num_fulfilled * 100 / @num_total %>%;">
-        <span>FULFILLED <%= @num_fulfilled  * 100 / @num_total %> %</span>
+      <div class="project-progress-bar background-blue" style="width: <%= 42 * 100 / @num_total %>%;">
+        <span>IN PROGRESS <%= 42 * 100 / @num_total %> %</span>
+      </div>
+    </div>
+
+    <div class="project-progress">
+      <div class="project-progress-bar background-blue"  style="width: <%= 26 * 100 / @num_total %>%;">
+        <span>NOT STARTED <%= 26  * 100 / @num_total %> %</span>
       </div>
     </div>
   </div>

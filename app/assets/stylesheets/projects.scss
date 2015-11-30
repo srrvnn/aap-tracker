@@ -7,21 +7,27 @@
   top: 60px;
 }
 
+#progress-meters {
+  position: relative;
+  top: 1.5em;
+  margin-bottom: 1em;
+}
+
 .project-progress {
   overflow: hidden;
-  height: 40px;
-  margin: 20px 0;
+  height: 35px;
+  margin: 15px 0;
   background-color: #D8D8D8;
   border-radius: 4px;
 }
 
 .project-progress-bar {
   color:white;
-  font-size: 16px;
+  font-size: 15px;
   letter-spacing: 1px;
   float: left;
   height: 100%;
-  line-height: 40px;
+  line-height: 35px;
   overflow: visible;
 }
 
@@ -115,5 +121,5 @@ table {
 }
 
 .background-blue {
-  background-color: #68A6EE;
+  background-color: #67AFAD;
 }
