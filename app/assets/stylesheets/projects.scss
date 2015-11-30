@@ -8,40 +8,50 @@
 }
 
 .project-progress {
-    overflow: hidden;
-    height: 60px;
-    margin: 20px 0;
-    background-color: #D8D8D8;
-    border-radius: 4px;
+  overflow: hidden;
+  height: 40px;
+  margin: 20px 0;
+  background-color: #D8D8D8;
+  border-radius: 4px;
 }
 
 .project-progress-bar {
   color:white;
-  font-size: 18px;
+  font-size: 16px;
+  letter-spacing: 1px;
   float: left;
   height: 100%;
-  line-height: 60px;
+  line-height: 40px;
   overflow: visible;
 }
 
 .project-progress-bar span {
   display: block;
   white-space: nowrap;
-  padding: 0 10px;
+  padding-left: 10px;
 }
 
 .banner {
   height: 300px;
-  background-color: #D8D8D8;
+  background: image-url("men_voting.png");
+  background-size: cover;
+  background-position: 0px -175px;
+  background-attachment: fixed;
+  color: white;
 }
 
 .title {
   position: relative;
-  top: 100px;
+  top: 120px;
 }
 
 .byline {
   text-align: center;
+  font-size: 18px;
+  letter-spacing: 1px;
+  font-family: 'Lato-Light';
+  position: relative;
+  top: 1em;
 }
 
 

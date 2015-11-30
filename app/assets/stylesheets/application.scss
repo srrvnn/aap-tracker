@@ -31,7 +31,7 @@ body {
 }
 
 
-.navbar {
+/*.navbar {
   background-color: transparent;
   background: transparent;
   border-color: transparent;
@@ -51,14 +51,21 @@ body {
 .navbar-text a:hover {
   text-decoration: none;
   color: gainsboro;
-}
+}*/
 
 .navbar-default {
   background-color: #ffffff;
   border-color: #d8d8d8;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 18px;
+  letter-spacing: 2px;
 }
 .navbar-default .navbar-brand {
   color: #000000;
+  font-size: 18px;
 }
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
   color: #000000;
