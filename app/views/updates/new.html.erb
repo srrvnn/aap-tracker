@@ -1,7 +1,7 @@
 <h1>New Update for Project <%= @project.sno %></h1>
 
 <%= link_to "Back", :back %>
-<%= form_tag(controller: "update", action: "create", method: "post") do %>
+<%= form_tag(controller: "updates", action: "create", method: "post") do %>
   <div class="form-group">
 	<%= label_tag(:title, "Update Title") %>
   	<%= text_field_tag(:title, nil, class: "form-control")  %>
