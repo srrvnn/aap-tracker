@@ -15,7 +15,7 @@
     <hr/>
     <h4>Updates</h4>
     <% if user_signed_in? %>
-        <%= link_to "Add Update", controller: "update", action: "new", project_id: @project.id %>
+        <%= link_to "Add Update", controller: "updates", action: "new", project_id: @project.id %>
     <% end %>
 
     <% @updates.each do |u| %>
