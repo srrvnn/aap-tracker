@@ -7,6 +7,7 @@ class UpdatesController < ApplicationController
 
   def new
     @project = Project.find(params[:project_id])
+    @update = Update.new
   end
 
   def edit
@@ -17,7 +18,7 @@ class UpdatesController < ApplicationController
   def create
     @update = Update.new update_params
     @update.save
-    redirect_to project_path(@update.project_id)
+    redirect_to project_path(update_params[:project_id])
   end
 
   def show
@@ -27,7 +28,7 @@ class UpdatesController < ApplicationController
   def update
   	@update = Update.find(params[:id])
     @update.update_attributes update_params
-    redirect_to project_path(@update.project_id)
+    redirect_to project_path(update_params[:project_id])
   end
 
   def destroy

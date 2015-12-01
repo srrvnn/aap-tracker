@@ -4,6 +4,8 @@
   
   <%= form_for @update, url: {action: 'update'} , :html=>{:method=>:put} do |f| %>
 
+    <%= f.hidden_field :project_id, :value => @project.id %>
+    
     <div class="form-group">
       <%= label_tag(:title, "Update Title") %>
       <%= f.text_field :title, :class => "form-control" %>
