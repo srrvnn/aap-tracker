@@ -17,7 +17,7 @@ class UpdatesController < ApplicationController
   def create
     @update = Update.new update_params
     @update.save
-    redirect_to project_path(update_params[:project_id])
+    redirect_to project_path(@update.project_id)
   end
 
   def show
