@@ -13,7 +13,7 @@ class UpdatesController < ApplicationController
   def create
     @update = Update.new update_params
     @update.save
-    redirect_to action: "index"
+    redirect_to project_path(update_params[:project_id])
   end
 
   def show
