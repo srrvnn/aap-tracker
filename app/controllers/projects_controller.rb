@@ -2,8 +2,7 @@ class ProjectsController < ApplicationController
   helper ProjectsHelper
     
   def index
-    @projects = Project.all
-    puts @projects
+    @projects = Project.order(:sno)
     @num_total = Project.count
     @num_in_progress = Project.where("status = ?", Project::STATUSES["In Progress"]).count
     @num_partially_fulfilled = Project.where("status = ?", Project::STATUSES["Partially Fulfilled"]).count
