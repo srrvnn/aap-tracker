@@ -44,13 +44,20 @@
   <div class="col-md-10 col-md-offset-1" id="project-container">
   <% @projects.each do |p| %>
     <div class="row project-row">
-      <div class="project-title col-md-3 text-center"><%= link_to p.title, project_path(p.id) %></div>
+      <div class="project-title col-md-3 text-center">
+        <%= link_to p.title, project_path(p.id) %>
+          <% if user_signed_in? %>
+            <br/>
+            <%= link_to "Delete", project_path(p.id), method: "delete", class: "btn btn-danger", role: "button" %>
+            <%= link_to "Edit", edit_project_path(p.id), method: "get", class: "btn btn-warning", role: "button" %>
+          <% end %>
+      </div>
       <div class="col-md-8"><%= truncate_description(p.description) %></div>
       <div class="status-cell col-md-1 text-center"><span class="project-status background-<%= status_color(p.status) %>"></span></div>
-      <% if user_signed_in? %>
-        <div><%= link_to "Delete", project_path(p.id), method: "delete", class: "btn btn-danger", role: "button" %></div>
-      <% end %>
     </div>
+    
+
+    
     <hr />
   <% end %>
   </div>
