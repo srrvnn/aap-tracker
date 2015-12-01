@@ -15,15 +15,20 @@
     <hr/>
     <h4>Updates</h4>
     <% if user_signed_in? %>
-        <%= link_to "Add Update", controller: "update", action: "new", project_id: @project.id %>
+        <%= link_to "Add Update", controller: "updates", action: "new", project_id: @project.id %>
     <% end %>
 
     <% @updates.each do |u| %>
-
-      <%= u.title %>
-      <%= u.description %>
-      <%= u.url %>
-
+      <h5><%= u.title %>
+      <% if u.url.present? %>
+        (<%= link_to "Link", u.url %>)
+      <% end %>
+      </h5>
+      
+      <div><%= u.description %></div>
+      <div>Updated at: <%= u.updated_at %>
+        <%= link_to "Edit", controller: "updates", action: "edit", project_id: @project.id, id: u.id %>
+      </div>
     <% end %>
 
     <hr />

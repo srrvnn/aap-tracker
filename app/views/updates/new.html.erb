@@ -1,18 +1,23 @@
-<h1>New Update for Project <%= @project.sno %></h1>
+<div class="container-fluid page-full">
+  <%= link_to "Back", :back, class: "back-link" %>
+  <h1 class="text-center">New Update for <%= @project.title %></h1>
 
-<%= link_to "Back", :back %>
-<%= form_tag(controller: "update", action: "create", method: "post") do %>
-  <div class="form-group">
-	<%= label_tag(:title, "Update Title") %>
-  	<%= text_field_tag(:title, nil, class: "form-control")  %>
+  <div class="col-md-10 col-md-offset-1">
+    <%= form_tag(controller: "updates", action: "create", method: "post") do %>
+      <div class="form-group">
+      <%= label_tag(:title, "Update Title") %>
+        <%= text_field_tag(:title, nil, class: "form-control")  %>
+      </div>
+      <div class="form-group">
+        <%= label_tag(:url, "URL") %>
+        <%= text_field_tag(:url, nil, class: "form-control") %>
+      </div>
+      <div class="form-group">
+      <%= label_tag(:description, "Update Description") %>
+        <%= text_area_tag(:description, nil, class: "form-control") %>
+      </div>
+        <%= submit_tag("Save", class: "btn btn-default") %>
+    <% end %>
   </div>
-  <div class="form-group">
-  	<%= label_tag(:url, "URL") %>
-  	<%= text_field_tag(:url, nil, class: "form-control") %>
-  </div>
-  <div class="form-group">
-	<%= label_tag(:description, "Update Description") %>
-  	<%= text_area_tag(:description, nil, class: "form-control") %>
-  </div>
-  	<%= submit_tag("Save", class: "btn btn-default") %>
-<% end %>
+
+</div>
