@@ -27,7 +27,7 @@ class UpdatesController < ApplicationController
   def update
   	@update = Update.find(params[:id])
     @update.update_attributes update_params
-    redirect_to project_path(update_params[:project_id])
+    redirect_to project_path(@update.project_id)
   end
 
   def destroy
