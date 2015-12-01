@@ -2,14 +2,18 @@ class UpdatesController < ApplicationController
     before_action :authenticate_user!, only: [:new, :create, :edit, :delete]
     
   def index
-    @project = Project.find(params[:project_id])
-    @updates = @project.updates
+    redirect_to project_path(params[:project_id])
   end
 
   def new
     @project = Project.find(params[:project_id])
   end
 
+  def edit
+    @update = Update.find(params[:id])
+    @project = Project.find(params[:project_id])
+  end
+  
   def create
     @update = Update.new update_params
     @update.save
@@ -17,11 +21,13 @@ class UpdatesController < ApplicationController
   end
 
   def show
-  	@update = Update.find(params[:id])
+    redirect_to project_path(params[:project_id])
   end
 
   def update
   	@update = Update.find(params[:id])
+    @update.update_attributes update_params
+    redirect_to project_path(update_params[:project_id])
   end
 
   def destroy
@@ -30,6 +36,6 @@ class UpdatesController < ApplicationController
   end
 
   def update_params
-    params.permit(:title, :url, :description, :project_id)
+    params.require(:update).permit(:title, :url, :description, :project_id)
   end
 end

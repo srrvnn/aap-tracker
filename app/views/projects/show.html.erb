@@ -19,11 +19,16 @@
     <% end %>
 
     <% @updates.each do |u| %>
-
-      <%= u.title %>
-      <%= u.description %>
-      <%= u.url %>
-
+      <h5><%= u.title %>
+      <% if u.url.present? %>
+        (<%= link_to "Link", u.url %>)
+      <% end %>
+      </h5>
+      
+      <div><%= u.description %></div>
+      <div>Updated at: <%= u.updated_at %>
+        <%= link_to "Edit", controller: "updates", action: "edit", project_id: @project.id, id: u.id %>
+      </div>
     <% end %>
 
     <hr />
