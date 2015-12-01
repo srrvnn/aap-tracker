@@ -61,13 +61,6 @@
 }
 
 
-.project-description {
-  white-space: nowrap; 
-  max-width: 500px;
-  overflow: hidden;
-  text-overflow: ellipsis; 
-}
-
 .project-status {
   display: inline-block;
   width: 16px;
@@ -76,18 +69,13 @@
   margin: 10px;
 }
 
-table {
-  border-collapse: collapse;
-  table-layout: fixed;
+.project-row {
+  padding: 10px 5px;
 }
 
-.project-table td, .project-table th {
-  vertical-align: middle;
-  height: 80px;
-  border-bottom: 1px solid gainsboro;
-  padding: 0 16px;
+#project-container {
+  padding-top: 20px;
 }
-
 .status-cell {
   min-width: 60px;
 }
