@@ -4,6 +4,7 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.order(:sno)
     @num_total = Project.count
+    @num_not_started = Project.where("status = ?", Project::STATUSES["Not Started"]).count
     @num_in_progress = Project.where("status = ?", Project::STATUSES["In Progress"]).count
     @num_partially_fulfilled = Project.where("status = ?", Project::STATUSES["Partially Fulfilled"]).count
     @num_fulfilled = Project.where("status = ?", Project::STATUSES["Fulfilled"]).count
