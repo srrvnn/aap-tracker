@@ -8,6 +8,19 @@
   </div>
 </div>
 
+<div class="container-fluid" id="search-bar">
+  <div class="search-bar">
+    <%= form_tag projects_path, :role => "search", :method => 'get' do %>
+      <div class="input-group">
+        <%= text_field_tag :search, params[:search], class: "form-control" %>
+        <span class= "input-group-btn">
+          <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
+        </span>
+      </div>
+    <% end %>
+  </div>
+</div>
+
 <!-- Progress meters -->
 <div class="container-fluid" id="progress-meters">
     <!-- In progress -->
@@ -55,9 +68,6 @@
       <div class="col-md-8"><%= truncate_description(p.description) %></div>
       <div class="status-cell col-md-1 text-center"><span class="project-status background-<%= status_color(p.status) %>"></span></div>
     </div>
-    
-
-    
     <hr />
   <% end %>
   </div>

@@ -3,11 +3,16 @@ class ProjectsController < ApplicationController
     
   def index
     @projects = Project.order(:sno)
-    @num_total = Project.count
-    @num_not_started = Project.where("status = ?", Project::STATUSES["Not Started"]).count
-    @num_in_progress = Project.where("status = ?", Project::STATUSES["In Progress"]).count
-    @num_partially_fulfilled = Project.where("status = ?", Project::STATUSES["Partially Fulfilled"]).count
-    @num_fulfilled = Project.where("status = ?", Project::STATUSES["Fulfilled"]).count
+    
+    if params[:search].present? 
+      @projects = Project.where("description LIKE ?", "%#{params[:search]}%").order(:sno)
+    end
+    
+    @num_total = @projects.count
+    @num_not_started = @projects.where("status = ?", Project::STATUSES["Not Started"]).count
+    @num_in_progress = @projects.where("status = ?", Project::STATUSES["In Progress"]).count
+    @num_partially_fulfilled = @projects.where("status = ?", Project::STATUSES["Partially Fulfilled"]).count
+    @num_fulfilled = @projects.where("status = ?", Project::STATUSES["Fulfilled"]).count
 
   end
 
