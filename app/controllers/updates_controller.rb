@@ -1,6 +1,6 @@
 class UpdatesController < ApplicationController
-    before_action :authenticate_user!, only: [:new, :create, :edit, :delete]
-    
+    before_action :current_user, only: [:new, :create, :edit, :delete]
+
   def index
     redirect_to project_path(params[:project_id])
   end
@@ -14,7 +14,7 @@ class UpdatesController < ApplicationController
     @update = Update.find(params[:id])
     @project = Project.find(params[:project_id])
   end
-  
+
   def create
     @update = Update.new update_params
     @update.save

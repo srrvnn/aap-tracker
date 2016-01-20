@@ -1,5 +1,5 @@
 <div class="container-fluid page-full">
-  <% if user_signed_in? %>
+  <% if true %>
   <h1>Edit Project <%= @project.sno %></h1>
 
   <%= form_for @project, url: {action: "update"} , :html=>{:method=>:put} do |f| %>

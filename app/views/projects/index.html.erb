@@ -59,7 +59,7 @@
     <div class="row project-row">
       <div class="project-title col-md-3 text-center">
         <%= link_to p.title, project_path(p.id) %>
-          <% if user_signed_in? %>
+          <% if true %>
             <br/>
             <%= link_to "Delete", project_path(p.id), method: "delete", class: "btn btn-danger", role: "button" %>
             <%= link_to "Edit", edit_project_path(p.id), method: "get", class: "btn btn-warning", role: "button" %>
