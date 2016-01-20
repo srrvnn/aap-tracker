@@ -16,13 +16,21 @@
     <div>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/#about">ABOUT</a></li>
-        <li><a href="/#team">TEAM</a></li> 
-        <li><a href="/#contact">CONTACT</a></li> 
+        <li><a href="/#team">TEAM</a></li>
+        <li><a href="/#contact">CONTACT</a></li>
+        <li id="user-widget">
+          <% if current_user %>
+            Welcome <strong><%= current_user.name %></strong>!
+            <%= link_to "LOG OUT", signout_path, id: "sign_out" %>
+          <% else %>
+            <%= link_to "LOG IN", "/auth/facebook", id: "sign_in" %>
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
-    
+
 <div id="content">
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
@@ -32,6 +40,6 @@
     <% end %>
     <%= yield %>
 </div>
-  
+
 </body>
 </html>

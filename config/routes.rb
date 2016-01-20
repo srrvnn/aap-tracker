@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
 
-devise_for :users
+# devise_for :users
 
-root 'projects#landing'
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
 
-resources :projects do
-  resources :updates
+  root 'projects#landing'
+
+  resources :projects do
+    resources :updates
+
 end
 
 
