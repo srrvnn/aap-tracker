@@ -5,6 +5,10 @@ ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 
+# Facebook for authentication
+gem 'omniauth'
+gem 'omniauth-facebook', '1.4.0'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -42,7 +46,7 @@ gem 'seed_dump'
 group :production do
   # Use postgres as the database for Active Record
   gem 'pg'
-  
+
   # This is for heroku compatibility
   gem 'rails_12factor'
 end
@@ -59,7 +63,7 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  
+
   # Use sqlite as the database for Active Record
   gem 'sqlite3'
 end
