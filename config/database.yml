@@ -26,4 +26,6 @@ test:
 production:
   adapter: postgresql
   <<: *default
+  username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
   host: <%= ENV['RDS_HOSTNAME'] %>
