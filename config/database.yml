@@ -25,8 +25,8 @@ test:
 
 production:
   adapter: postgresql
-  timeout: 5000
-  name: testdatabase
+  <<: *default
+  database: manifesto_tracker_database
   host: <%= ENV['RDS_HOSTNAME'] %>
   username: <%= ENV['RDS_USERNAME'] %>
   password: <%= ENV['RDS_PASSWORD'] %>
