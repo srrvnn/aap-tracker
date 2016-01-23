@@ -5,7 +5,7 @@
 #   gem 'sqlite3'
 #
 default: &default
-  
+
   pool: 5
   timeout: 5000
   host: localhost
@@ -26,4 +26,4 @@ test:
 production:
   adapter: postgresql
   <<: *default
-  database: production_database
+  host: <%= ENV['RDS_HOSTNAME'] %>
