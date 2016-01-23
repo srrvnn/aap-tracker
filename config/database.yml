@@ -27,5 +27,5 @@ production:
   <<: *default
   database: tracker_db
   host: <%= ENV['RDS_HOSTNAME'] %>
-  password: <%= ENV['RDS_PASSWORD'] %>
   username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
