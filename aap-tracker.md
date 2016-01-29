@@ -1,3 +1,27 @@
+[ ] citizen response / govt. response - database design
+
+[ ] citizen response / govt. response, recaptcha must, how to add images, vids.
+
+[ ] two class of admins - officials / volunteers
+
+[ ] localize - hindi
+
+[ ] volunteer approval and show responses
+
+[ ] volunteers generate email at the end of each week
+
+[ ] graphs for govt. work
+
+[ ] security, remove disqus
+
+[ ] redesign
+
+[ ] mobile friendly
+
+[ ] mobile friendly
+
+ ------------
+
 ruby on rails - with sql - js
 
 mocks for the complete design - psds
@@ -35,16 +59,3 @@ automatically extract stuff from the link as you show it.
 place to upload documents, links in both crowdsourced list
 
 place to submit documents /
-
-
-
-things from Michelle
----------------------
-
-who owns delhigov github organization?
-how do admins login?
-how is the code deployed? heroku credentials?
-do we have a google drive folder with all related files, design, excels etc.?
-
-
-
