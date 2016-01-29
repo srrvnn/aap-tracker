@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ManifestoTracker</title>
+  <title>AAP Tracker</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -9,15 +9,15 @@
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid" class="navbar-text">
+  <div class="container" class="navbar-text">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">Manifesto Tracker</a>
+      <a class="navbar-brand" href="/">AAP Tracker & Feedback</a>
     </div>
     <div>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/#about">ABOUT</a></li>
-        <li><a href="/#team">TEAM</a></li>
-        <li><a href="/#contact">CONTACT</a></li>
+        <!-- <li><a href="/#about">ABOUT</a></li> -->
+        <!-- <li><a href="/#team">TEAM</a></li> -->
+        <!-- <li><a href="/#contact">CONTACT</a></li> -->
         <li id="user-widget">
           <% if current_user %>
             <%= link_to "LOG OUT", signout_path, id: "sign_out" %>
