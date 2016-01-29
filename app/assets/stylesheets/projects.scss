@@ -31,7 +31,7 @@
   text-align: justify;
 }
 
-.project-responses-heading {
+.project-updates-heading {
 
   margin-bottom: 50px;
   font-size: 18px;
@@ -39,7 +39,7 @@
   padding: 20px;
 }
 
-.project-responses-heading h4 {
+.project-updates-heading h4 {
 
     width: 50%;
     margin: 0;
@@ -48,16 +48,80 @@
 
 }
 
-.project-responses-heading .updates-sort {
+.project-updates-heading .updates-sort {
 
   float: right;
   margin-left: 20px;
+  padding: 5px 15px;
+  border-radius: 5px;
 }
 
-.project-responses-heading .updates-sort input {
+.project-updates-heading .updates-sort.red {
+  background: #E06171;
+  color: white;
+}
+
+.project-updates-heading .updates-sort.yellow {
+  background: #E8D806;
+  color: white;
+}
+
+.project-updates-heading .updates-sort.green {
+  background: #4DD5B7;
+  color: white;
+}
+
+.project-updates-heading .updates-sort.blue {
+  background: #68A6EE;
+  color: white;
+}
+
+.project-updates-heading .updates-sort input {
 
   margin-right: 15px;
 }
+
+.project-updates {
+
+  position: relative;
+}
+
+.project-update {
+
+  margin: 10px 0 10px 60px;
+  padding: 10px 0;
+  font-size: 20px;
+  line-height: 40px;
+}
+
+.project-update.new {
+
+  display: block;
+  margin-bottom: 30px;
+}
+
+.project-update .updated-at,
+.project-update .edit {
+
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.project-timeline::before {
+
+  content: "";
+  width: 2px;
+  height: calc(100% + 100px);
+  position: absolute;
+  background: #F9F9F9;
+  left: 10px;
+  top: -50px;
+}
+
+
+
+
 
 .page-full {
   position: relative;

@@ -1,13 +1,13 @@
 class ProjectsController < ApplicationController
   helper ProjectsHelper
-    
+
   def index
     @projects = Project.order(:sno)
-    
-    if params[:search].present? 
+
+    if params[:search].present?
       @projects = Project.where("description LIKE ?", "%#{params[:search]}%").order(:sno)
     end
-    
+
     @num_total = @projects.count
     @num_not_started = @projects.where("status = ?", Project::STATUSES["Not Started"]).count
     @num_in_progress = @projects.where("status = ?", Project::STATUSES["In Progress"]).count
@@ -29,7 +29,13 @@ class ProjectsController < ApplicationController
 
   def show
   	@project = Project.find(params[:id])
-    @updates = @project.updates
+
+    if params[:sort].present?
+      @updates = @project.updates.order('created_at ' + params[:sort])
+    else
+      @updates = @project.updates.order('created_at DESC')
+    end
+
   end
 
   def edit
@@ -47,7 +53,7 @@ class ProjectsController < ApplicationController
   	Project.delete(params[:id])
   	redirect_to action: "index"
   end
-  
+
   def project_params
     params.require(:project).permit(:sno, :title, :description, :status)
   end

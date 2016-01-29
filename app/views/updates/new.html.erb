@@ -11,14 +11,14 @@
             <%= f.hidden_field :project_id, :value => @project.id %>
 
             <div class="form-group">
-                <%= label_tag(:title, "Date") %>
-                <%= f.text_field :title, :class => "form-control" %>
-                </div>
-
-            <div class="form-group">
                 <%= label_tag(:description, "Update") %>
                 <%= f.text_area :description, :class => "form-control" %>
                 </div>
+
+            <div class="form-group">
+              <%= label_tag(:url, "URL") %>
+              <%= f.text_field :url, :class => "form-control" %>
+            </div>
 
             <%= submit_tag("Save", class: "btn btn-default") %>
 

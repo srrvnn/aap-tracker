@@ -25,35 +25,45 @@
 
         </div>
 
-    <div class="project-responses-heading row">
+    <div class="project-updates-heading row">
 
         <h4> Updates </h4>
 
-        <label class="updates-sort"> <input name="updates-sort-order" type="radio" /> Recent First</label>
+        <%= sortable "Recent First", "DESC", @project.status %>
 
-        <label class="updates-sort"> <input name="updates-sort-order" type="radio" /> As It Happened </label>
+        <%= sortable "As It Happened", "ASC", @project.status %>
 
-        <!-- <% if current_user %> -->
-            <!-- <%= link_to "Add Response", controller: "updates", action: "new", project_id: @project.id %> -->
-        <!-- <% end %> --> </div>
+        </div>
 
-    <div class="project-responses">
+    <div class="project-updates">
 
-        <% @updates.each do |u| %>
+        <div class="project-timeline">
 
-            <h5> <%= u.title %> </h5>
+        <% if current_user %>
+            <%= link_to "New Update", { controller: "updates", action: "new", project_id: @project.id }, class: "project-update new" %>
+        <% end %>
 
-            <p> <%= u.description %> </p>
+        </div>
 
-            <p> Updated at: <%= u.updated_at %> </p>
+        <% for u in @updates %>
 
-            <% if u.url.present? %>
-                <%= link_to "Link", u.url %>
-            <% end %>
+            <div class="project-update">
 
-            <% if true %>
-                <%= link_to "Edit", controller: "updates", action: "edit", project_id: @project.id, id: u.id %>
-            <% end %>
+                <!-- <h5> <%= u.title %> </h5> -->
+
+                <span class="updated-at"> <%= u.updated_at %> </span>
+
+                <!-- <% if true %> -->
+                    <!-- <%= link_to "Edit", { controller: "updates", action: "edit", project_id: @project.id, id: u.id }, class: "edit"  %> -->
+                <!-- <% end %> -->
+
+                <p> <%= u.description %> </p>
+
+                <!-- <% if u.url.present? %> -->
+                    <!-- <%= link_to u.url, u.url%> -->
+                <!-- <% end %> -->
+
+            </div>
 
         <% end %>
 
