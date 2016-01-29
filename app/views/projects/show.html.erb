@@ -25,59 +25,37 @@
 
         </div>
 
-    <div class="project-responses offical">
+    <div class="project-responses-heading row">
 
-        <h4> Official Responses </h4>
+        <h4> Updates </h4>
 
-            <% if current_user %>
-                <%= link_to "Add Response", controller: "updates", action: "new", project_id: @project.id %>
+        <label class="updates-sort"> <input name="updates-sort-order" type="radio" /> Recent First</label>
+
+        <label class="updates-sort"> <input name="updates-sort-order" type="radio" /> As It Happened </label>
+
+        <!-- <% if current_user %> -->
+            <!-- <%= link_to "Add Response", controller: "updates", action: "new", project_id: @project.id %> -->
+        <!-- <% end %> --> </div>
+
+    <div class="project-responses">
+
+        <% @updates.each do |u| %>
+
+            <h5> <%= u.title %> </h5>
+
+            <p> <%= u.description %> </p>
+
+            <p> Updated at: <%= u.updated_at %> </p>
+
+            <% if u.url.present? %>
+                <%= link_to "Link", u.url %>
             <% end %>
 
-            <% @updates.each do |u| %>
-
-                <h5> <%= u.title %> </h5>
-
-                <p> <%= u.description %> </p>
-
-                <p> Updated at: <%= u.updated_at %> </p>
-
-                <% if u.url.present? %>
-                    <%= link_to "Link", u.url %>
-                <% end %>
-
-                <% if true %>
-                    <%= link_to "Edit", controller: "updates", action: "edit", project_id: @project.id, id: u.id %>
-                <% end %>
-
+            <% if true %>
+                <%= link_to "Edit", controller: "updates", action: "edit", project_id: @project.id, id: u.id %>
             <% end %>
 
-        </div>
-
-    <div class="project-responses public">
-
-        <h4> Public Responses </h4>
-
-            <% if current_user %>
-                <%= link_to "Add Response", controller: "updates", action: "new", project_id: @project.id %>
-            <% end %>
-
-            <% @updates.each do |u| %>
-
-                <h5> <%= u.title %> </h5>
-
-                <p> <%= u.description %> </p>
-
-                <p> Updated at: <%= u.updated_at %> </p>
-
-                <% if u.url.present? %>
-                    <%= link_to "Link", u.url %>
-                <% end %>
-
-                <% if true %>
-                    <%= link_to "Edit", controller: "updates", action: "edit", project_id: @project.id, id: u.id %>
-                <% end %>
-
-            <% end %>
+        <% end %>
 
         </div>
 
