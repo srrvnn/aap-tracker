@@ -2,6 +2,42 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.aapt-page {
+
+  margin-top: 100px;
+}
+
+.project-title {
+
+  position: relative;
+  margin-bottom: 50px;
+  border-bottom: 1px solid #777;
+}
+
+.project-title .status {
+
+  position: absolute;
+  top: 0;
+  line-height: 30px;
+  right: 0;
+  font-size: 30px;
+}
+
+.project-info {
+
+  margin-bottom: 20px;
+  font-size: 18px;
+  line-height: 36px;
+  text-align: justify;
+
+  // padding-bottom: 20px;
+}
+
+.project-responses {
+
+  margin: 50px 0;
+}
+
 .page-full {
   position: relative;
   top: 60px;
