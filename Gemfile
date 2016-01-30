@@ -9,7 +9,8 @@ gem 'rails', '4.2.4'
 
 # Facebook for authentication
 gem 'omniauth'
-gem 'omniauth-facebook', '1.4.0'
+gem 'omniauth-facebook'
+gem "koala", "~> 2.2"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
