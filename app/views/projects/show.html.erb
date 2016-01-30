@@ -27,7 +27,7 @@
 
     <div class="project-updates-heading row">
 
-        <h4> Updates </h4>
+        <h4> Responses </h4>
 
         <%= sortable "Recent First", "DESC", @project.status %>
 
@@ -40,7 +40,7 @@
         <div class="project-timeline">
 
         <% if current_user %>
-            <%= link_to "New Update", { controller: "updates", action: "new", project_id: @project.id }, class: "project-update new" %>
+            <%= link_to "Add a response", { controller: "updates", action: "new", project_id: @project.id }, class: "project-update new" %>
         <% end %>
 
         </div>
