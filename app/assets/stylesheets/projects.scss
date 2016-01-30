@@ -51,7 +51,6 @@
 .project-updates-heading .updates-sort {
 
   float: right;
-  margin-left: 20px;
   padding: 5px 15px;
   border-radius: 5px;
 }
@@ -74,6 +73,12 @@
 .project-updates-heading .updates-sort.blue {
   background: #68A6EE;
   color: white;
+}
+
+.project-updates-heading .updates-sort .fa {
+
+  margin: 0 10px;
+  color: #428bca;
 }
 
 .project-updates-heading .updates-sort input {

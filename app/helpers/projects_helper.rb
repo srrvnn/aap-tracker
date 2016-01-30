@@ -12,6 +12,6 @@ module ProjectsHelper
   end
 
   def sortable(text, order, status)
-  	link_to text, { :sort => order }, class: 'updates-sort'# + Project::STATUS_COLORS[status] ||= 'red'
+  	link_to text, { :sort => order }, class: 'updates-sort-link'# + Project::STATUS_COLORS[status] ||= 'red'
   end
 end

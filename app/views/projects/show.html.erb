@@ -29,9 +29,22 @@
 
         <h4> Responses </h4>
 
-        <%= sortable "Recent First", "DESC", @project.status %>
+        <div class="updates-sort">
 
-        <%= sortable "As It Happened", "ASC", @project.status %>
+            <%= fa_icon "long-arrow-up" %>
+            <%= sortable "As It Happened", "ASC", @project.status %>
+        </div>
+
+        <div class="updates-sort">
+
+            <%= fa_icon "long-arrow-down" %>
+            <%= sortable "Newest First", "DESC", @project.status %>
+        </div>
+
+        <div class="updates-sort">
+
+            Sort Order :
+        </div>
 
         </div>
 

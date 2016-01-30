@@ -1,24 +1,44 @@
 [ ] citizen response / govt. response - database design
 
-[ ] citizen response / govt. response, recaptcha must, how to add images, vids.
+	add event date
+	more urls
+	flag official
+	flag approved
+
+[ ] citizen response / govt. response
+
+	add recaptcha
+	text how to add image, videos
 
 [ ] two class of admins - officials / volunteers
 
-[ ] localize - hindi
+	add official list to database
+	use that when new reponses are made
 
 [ ] volunteer approval and show responses
 
-[ ] volunteers generate email at the end of each week
-
 [ ] graphs for govt. work
+
+	percentage of projects with more than 50% reponses being positive.
+
+	this week: no of projects worked upon, no of responses, no of public responses.
+
+	percentage of promises any action has been taken - also in this week.
+	genuine vs non genuine responses
+	public responses and official responses per week on all points in two seperate, on specific promise.
+
+
+[ ] localize - hindi
 
 [ ] security, remove disqus
 
-[ ] redesign
-
 [ ] mobile friendly
 
 [ ] mobile friendly
+
+[ ] download rejected responses
+
+[ ] volunteers generate email at the end of each week
 
  ------------
 
@@ -59,3 +79,4 @@ automatically extract stuff from the link as you show it.
 place to upload documents, links in both crowdsourced list
 
 place to submit documents /
+
