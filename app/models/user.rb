@@ -1,8 +1,14 @@
-require 'pp'
-
 class User < ActiveRecord::Base
   def self.from_omniauth(auth)
     _permissions = self.groups_from_graphAPI(auth.credentials)
+
+    user = User.find_by(provider: auth.provider, uid: auth.uid)
+
+    unless user.nil?
+      user.official = _permissions['official']
+      user.volunteer = _permissions['volunteer']
+      user.save!
+    end
 
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
@@ -10,8 +16,11 @@ class User < ActiveRecord::Base
       user.name = auth.info.name
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.official = _permissions['official']
+      user.volunteer = _permissions['volunteer']
       user.save!
     end
+
   end
 
   def self.groups_from_graphAPI(auth)

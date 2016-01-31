@@ -1,7 +1,5 @@
 [ ] citizen response / govt. response - database design
 
-	add event date
-	more urls
 	flag official
 	flag approved
 
