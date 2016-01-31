@@ -18,7 +18,9 @@ class UpdatesController < ApplicationController
   def create
     @update = Update.new update_params
     # @update.official = current_user.offical
-    @update.save
+    if verify_recaptcha(model: @update)
+      @update.save
+    end
     redirect_to project_path(update_params[:project_id])
   end
 

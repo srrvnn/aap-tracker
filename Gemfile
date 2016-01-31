@@ -12,6 +12,8 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem "koala", "~> 2.2"
 
+gem "recaptcha", require: "recaptcha/rails"
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
