@@ -18,6 +18,7 @@
     <%= form_for @update, url: {action: 'create'} , :html=>{:method=>:post} do |f| %>
 
         <%= f.hidden_field :project_id, :value => @project.id %>
+        <%= f.hidden_field :official, :value => current_user.official %>
 
         <div class="form-group">
             <%= label_tag(:description, "Response") %>
