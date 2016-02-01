@@ -14,6 +14,7 @@ pickle-email-*.html
 /.bundle
 /vendor/bundle
 .DS_Store
+aap-tracker.md
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
