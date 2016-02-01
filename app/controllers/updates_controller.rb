@@ -1,8 +1,11 @@
+require 'pp'
+
 class UpdatesController < ApplicationController
-    before_action :current_user, only: [:new, :create, :edit, :delete]
+    before_action :check_access, only: [:index, :new, :create, :edit, :delete]
 
   def index
-    redirect_to project_path(params[:project_id])
+    @updates = Update.order(:created_at)
+    # redirect_to project_path(params[:project_id])
   end
 
   def new
@@ -41,4 +44,11 @@ class UpdatesController < ApplicationController
   def update_params
     params.require(:update).permit(:title, :url, :official, :description, :project_id)
   end
+
+  protected
+  def check_access
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    redirect_to projects_path and return unless (@current_user && @current_user.volunteer)
+  end
+
 end

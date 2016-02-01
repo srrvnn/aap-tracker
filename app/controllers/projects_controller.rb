@@ -2,7 +2,6 @@ class ProjectsController < ApplicationController
   helper ProjectsHelper
 
   def landing
-    # @data = Hash.new
     @data = [
         {
             value: 43,
@@ -35,7 +34,6 @@ class ProjectsController < ApplicationController
     @num_in_progress = @projects.where("status = ?", Project::STATUSES["In Progress"]).count
     @num_partially_fulfilled = @projects.where("status = ?", Project::STATUSES["Partially Fulfilled"]).count
     @num_fulfilled = @projects.where("status = ?", Project::STATUSES["Fulfilled"]).count
-
   end
 
   def new
@@ -57,7 +55,6 @@ class ProjectsController < ApplicationController
     else
       @updates = @project.updates.order('created_at DESC')
     end
-
   end
 
   def edit

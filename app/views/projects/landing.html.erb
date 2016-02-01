@@ -22,7 +22,11 @@
         <p> Irrelevant Responses:
           <span> 10845 </span> </p>
 
-        <%= link_to "VIEW ALL PROMISES", projects_path, id: "enter-button" %>
+        <div class="links">
+          <%= link_to "ALL PROMISES", projects_path, id: "enter-button" %>
+          <% if current_user && current_user.volunteer %>
+              <%= link_to "MODERATE", updates_path, id: "enter-button" %> </div>
+          <% end %>
 
       </div>
 

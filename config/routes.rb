@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   resources :projects do
     resources :updates
+  end
+
+  resources :updates, :only => [:index]
 
 end
 
@@ -63,4 +66,4 @@ end
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
+# end
