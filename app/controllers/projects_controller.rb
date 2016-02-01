@@ -50,9 +50,9 @@ class ProjectsController < ApplicationController
   	@project = Project.find(params[:id])
 
     if params[:sort].present?
-      @updates = @project.updates.order('created_at ' + params[:sort])
+      @updates = @project.updates.order('event_occured ' + params[:sort])
     else
-      @updates = @project.updates.order('created_at DESC')
+      @updates = @project.updates.order('event_occured DESC')
     end
   end
 

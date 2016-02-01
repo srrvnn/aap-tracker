@@ -1,5 +1,3 @@
-require 'pp'
-
 class UpdatesController < ApplicationController
     before_action :check_access, only: [:index, :new, :create, :edit, :delete]
 
@@ -47,7 +45,7 @@ class UpdatesController < ApplicationController
   end
 
   def update_params
-    params.require(:update).permit(:title, :url, :official, :positive, :description, :project_id)
+    params.require(:update).permit(:title, :url, :official, :positive, :description, :project_id, :event_occured)
   end
 
   protected

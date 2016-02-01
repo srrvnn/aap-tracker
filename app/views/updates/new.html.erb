@@ -27,17 +27,19 @@
           <%= label_tag(:url, "Link") %>
           <%= f.text_field :url, :class => "form-control" %> </div>
 
-        <div class="form-group">
-          <%= label_tag(:url, "Date") %>
-          <%= f.text_field :url, :class => "form-control" %> </div>
-
         <% unless current_user.official %>
             <div class="form-group">
-                <%= label_tag(:update_positive_true, "Positive Reponse") %>
+                <%= label_tag(:update_positive_true, "Positive Reponse:") %>
                 <%= f.radio_button("positive", "true") %>
-                <%= label_tag(:update_positive_false, "Negative Reponse") %>
+                <%= label_tag(:update_positive_false, "Negative Reponse:") %>
                 <%= f.radio_button("positive", "false") %> </div>
         <% end %>
+
+        <div class="form-group">
+          <%= label_tag(:event_occured, "Date & Time:", class: 'date-label') %>
+          <%= f.datetime_select(:event_occured, ampm: true) %> </div>
+
+
 
         <div class="form-group buttons">
 
