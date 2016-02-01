@@ -1,30 +1,33 @@
-[ ] citizen response / govt. response - database design
+[-] ui - new response page
 
-	flag official
-	flag approved
+	[-] flag official reponses
+	[-]	add recaptcha
+	[ ] text how to add image, videos
+	[ ] add in development disclaimer
 
-[ ] citizen response / govt. response
+[-] backend - two class of admins : officials / volunteers
 
-	add recaptcha
-	text how to add image, videos
+	[-] add official list to database - even better fb groups ftw!
+	[-] use that when new reponses are made
 
-[ ] two class of admins - officials / volunteers
+[ ] ui - landing page
 
-	add official list to database
-	use that when new reponses are made
+	[ ] percentage of projects with more than 50% reponses being positive.
+	[ ] this week: no of projects worked upon, no of responses, no of public responses.
 
-[ ] volunteer approval and show responses
+	[ ] percentage of promises any action has been taken - also in this week.
+	[ ] genuine vs non genuine responses
+	[ ] public responses and official responses per week on all points in two seperate, on specific promise.
 
-[ ] graphs for govt. work
+[ ] backend - volunteer approval and show responses
 
-	percentage of projects with more than 50% reponses being positive.
+	[ ] all responses follow approval rules
 
-	this week: no of projects worked upon, no of responses, no of public responses.
+[ ] ui - admin page
 
-	percentage of promises any action has been taken - also in this week.
-	genuine vs non genuine responses
-	public responses and official responses per week on all points in two seperate, on specific promise.
+	[ ] admin page to approve responses
 
+[ ] rename manifesto tracker to aap tracker
 
 [ ] localize - hindi
 

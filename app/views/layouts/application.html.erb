@@ -16,12 +16,10 @@
     <div>
       <ul class="nav navbar-nav navbar-right">
         <!-- <li><a href="/#about">ABOUT</a></li> -->
-        <!-- <li><a href="/#team">TEAM</a></li> -->
-        <!-- <li><a href="/#contact">CONTACT</a></li> -->
         <li id="user-widget">
           <% if current_user %>
             <%= link_to "LOG OUT", signout_path, id: "sign_out" %>
-            <%= image_tag("http://graph.facebook.com/"+current_user.uid+"/picture?type=square", :alt => "rss feed") %>
+            <%= image_tag("http://graph.facebook.com/"+current_user.uid+"/picture?type=square", :alt => current_user.name) %>
           <% else %>
             <%= link_to "LOG IN", "/auth/facebook", id: "sign_in" %>
           <% end %>
@@ -42,6 +40,8 @@
 </div>
 
 <script>
+
+// fb authentication script
 
 jQuery(function() {
   $('body').prepend('<div id="fb-root"></div>');

@@ -1,9 +1,36 @@
 <div name="landing" id="landing" class="page">
-  <div id="landing-content">
-    <h1 id="landing-title">MANIFESTO TRACKER</h1>
-    <a id="enter-button" href="<%= projects_path %>">ENTER</a>
+  <div class="container">
+
+    <div id="landing-content" class="row">
+
+      <%= doughnut_chart @data, @options %>
+
+      <div class="numbers col-md-6 col-sm-12">
+
+        <div class="heading">
+          This Week </div>
+
+        <p> Projects with Responses:
+          <span> 45 / 70 </span>  </p>
+
+        <p> Official Responses:
+          <span> 123 </span> </p>
+
+        <p> Public Responses:
+          <span> 456 </span> </p>
+
+        <p> Irrelevant Responses:
+          <span> 10845 </span> </p>
+
+        <%= link_to "VIEW ALL PROMISES", projects_path, id: "enter-button" %>
+
+      </div>
+
+    </div>
+
   </div>
 </div>
+
 <div name="about" id="about" class="page">
   <h2 class="title">ABOUT</h2>
   <div id="about-logos">
