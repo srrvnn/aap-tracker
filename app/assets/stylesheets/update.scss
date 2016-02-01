@@ -29,6 +29,11 @@ form.new_update a.btn, {
 	margin: 40px 30px 0 0;
 }
 
+form.new_update input[type=radio] {
+
+	margin: -1px 40px 0 10px;
+}
+
 form.new_update .form-group.buttons {
 
 	clear: both;

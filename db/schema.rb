@@ -34,10 +34,13 @@ ActiveRecord::Schema.define(version: 20160131172216) do
     t.string   "url"
     t.text     "description"
     t.integer  "project_id"
+    t.boolean  "positive",       default: true
+    t.integer  "approved_count", default: 0
+    t.integer  "rejected_count", default: 0
     t.datetime "last_updated"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.boolean  "official",     default: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.boolean  "official",       default: false
   end
 
   create_table "users", force: :cascade do |t|

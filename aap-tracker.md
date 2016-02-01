@@ -12,11 +12,11 @@
 
 [ ] ui - landing page
 
-	[ ] percentage of projects with more than 50% reponses being positive.
-	[ ] this week: no of projects worked upon, no of responses, no of public responses.
+	[-] percentage of projects with more than 50% reponses being positive.
+	[-] this week: no of projects worked upon, no of responses, no of public responses.
 
 	[ ] percentage of promises any action has been taken - also in this week.
-	[ ] genuine vs non genuine responses
+	[-] genuine vs non genuine responses
 	[ ] public responses and official responses per week on all points in two seperate, on specific promise.
 
 [ ] backend - volunteer approval and show responses
@@ -26,6 +26,8 @@
 [ ] ui - admin page
 
 	[ ] admin page to approve responses
+
+[ ] add current city to fb permissions
 
 [ ] rename manifesto tracker to aap tracker
 
@@ -40,6 +42,8 @@
 [ ] download rejected responses
 
 [ ] volunteers generate email at the end of each week
+
+[ ] allow form submission only with response
 
  ------------
 

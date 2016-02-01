@@ -18,21 +18,29 @@
     <%= form_for @update, url: {action: 'create'} , :html=>{:method=>:post} do |f| %>
 
         <%= f.hidden_field :project_id, :value => @project.id %>
-        <%= f.hidden_field :official, :value => current_user.official %>
 
         <div class="form-group">
             <%= label_tag(:description, "Response") %>
             <%= f.text_area :description, :rows => 8, :class => "form-control" %> </div>
 
         <div class="form-group">
-          <%= label_tag(:url, "Links") %>
+          <%= label_tag(:url, "Link") %>
           <%= f.text_field :url, :class => "form-control" %> </div>
 
         <div class="form-group">
           <%= label_tag(:url, "Date") %>
           <%= f.text_field :url, :class => "form-control" %> </div>
 
+        <% unless current_user.official %>
+            <div class="form-group">
+                <%= label_tag(:update_positive_true, "Positive Reponse") %>
+                <%= f.radio_button("positive", "true") %>
+                <%= label_tag(:update_positive_false, "Negative Reponse") %>
+                <%= f.radio_button("positive", "false") %> </div>
+        <% end %>
+
         <div class="form-group buttons">
+
             <%= recaptcha_tags %>
             <%= button_tag("Save", :type => "submit", class: "btn btn-success") %>
             <%= link_to "Cancel", project_path(@project.id), class: 'btn btn-default' %>

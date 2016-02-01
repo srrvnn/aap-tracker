@@ -20,6 +20,11 @@ class UpdatesController < ApplicationController
 
   def create
     @update = Update.new update_params
+    if @current_user.official
+      @update.positive = true
+      @update.official = true
+      @update.approved_count = 3
+    end
     if verify_recaptcha(model: @update)
       @update.save
     end
@@ -42,7 +47,7 @@ class UpdatesController < ApplicationController
   end
 
   def update_params
-    params.require(:update).permit(:title, :url, :official, :description, :project_id)
+    params.require(:update).permit(:title, :url, :official, :positive, :description, :project_id)
   end
 
   protected
