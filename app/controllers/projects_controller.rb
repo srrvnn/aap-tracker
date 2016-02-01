@@ -4,21 +4,20 @@ class ProjectsController < ApplicationController
   def landing
     @data = [
         {
-            value: 43,
-            color:"#F7464A",
-            highlight: "#FF5A5E",
-            label: "Other Projects"
-        },
-        {
             value: 27,
             color: "#46BFBD",
             highlight: "#5AD3D1",
-            label: "Projects with Positive Public Response"
+            label: "Promises with Positive Public Responses"
+        },
+        {
+            value: 43,
+            color:"#ECECEC",
+            highlight: "#F6F6F6",
+            label: "Others"
         }
     ]
     @options = {
-      animation: false,
-      class: 'chart col-md-6 col-sm-12'
+      # animation: tr
     }
   end
 

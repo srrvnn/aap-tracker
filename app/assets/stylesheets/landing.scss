@@ -34,9 +34,22 @@
     font-weight: 800;
     padding: 10px 20px;
     border-bottom: 1px solid white;
-    // display: inline-block;
     text-align: left;
     margin: 20px 0;
+}
+
+#landing-content .positive-chart {
+
+    margin-top: 100px;
+    padding-right: 100px;
+}
+
+#landing-content .positive-chart  p {
+
+    color: white;
+    text-transform: uppercase;
+    margin: 40px;
+    font-size: 16px;
 }
 
 #landing-content .numbers {
@@ -88,9 +101,9 @@
   padding: 10px 25px;
   text-align: center;
   font-size: 25px;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   display: inline-block;
-  margin: 25px 10px;
+  margin: 25px 14px;
 
   &:hover,
   &:focus {
