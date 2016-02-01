@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
         }
     ]
     @options = {
-      # animation: tr
+      animation: false
     }
   end
 
