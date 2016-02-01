@@ -1,3 +1,5 @@
+require 'pp'
+
 class User < ActiveRecord::Base
   def self.from_omniauth(auth)
     _permissions = self.groups_from_graphAPI(auth.credentials)
@@ -18,6 +20,7 @@ class User < ActiveRecord::Base
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.official = _permissions['official']
       user.volunteer = _permissions['volunteer']
+      pp user
       user.save!
     end
 
@@ -31,6 +34,8 @@ class User < ActiveRecord::Base
       _permissions = Hash.new
       _permissions['official'] = _groups.any?{|a| a["id"] == Rails.application.secrets.fb_officials_group_id.to_s }
       _permissions['volunteer'] = _groups.any?{|a| a["id"] == Rails.application.secrets.fb_volunters_group_id.to_s }
+      puts "Persmission from Facebook Graph API"
+      pp _permissions
       return _permissions
     end
 end
