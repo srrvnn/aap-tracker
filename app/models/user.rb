@@ -30,6 +30,10 @@ class User < ActiveRecord::Base
       access_token = auth['token']
       facebook = Koala::Facebook::API.new(access_token)
       _groups = facebook.get_connections("me", "admined_groups")
+      puts "Groups from Facebook"
+      pp _groups
+      pp Rails.application.secrets.fb_officials_group_id.to_s
+      pp Rails.application.secrets.fb_volunters_group_id.to_s
 
       _permissions = Hash.new
       _permissions['official'] = _groups.any?{|a| a["id"] == Rails.application.secrets.fb_officials_group_id.to_s }
