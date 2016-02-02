@@ -20,8 +20,14 @@
           <% if current_user %>
             <%= link_to "LOG OUT", signout_path, id: "sign_out" %>
             <%= image_tag("http://graph.facebook.com/"+current_user.uid+"/picture?type=square", :alt => current_user.name) %>
+            <% if current_user.official %>
+              <span class="user-mode" title="User recognized as Official"> O </span>
+            <% elsif current_user.volunteer %>
+              <span class="user-mode" title="User recognized as Volunteer"> V </span>
+            <% end %>
           <% else %>
             <%= link_to "LOG IN", "/auth/facebook", id: "sign_in" %>
+            <!-- <%= link_to image_tag("fb_login.png", :class => 'btn-login'), "/auth/facebook", id: "sign_in" %> -->
           <% end %>
         </li>
       </ul>

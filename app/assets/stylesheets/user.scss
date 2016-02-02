@@ -4,8 +4,27 @@
 	display: inline-block;
 }
 
+// #user-widget #sign_in {
+
+// 	padding: 0;
+// }
+
+// #user-widget img.btn-login {
+
+// 	width: 80px;
+// 	margin: 5px 0;
+// 	border-radius: none;
+// }
+
 #user-widget img {
 
 	width: 40px;
+	border-radius: 5px;
+}
+
+#user-widget .user-mode {
+
+	background: #ececec;
+	padding: 12px;
 	border-radius: 5px;
 }
