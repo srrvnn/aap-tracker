@@ -11,11 +11,8 @@
 		  		<div class="col-md-3">
 		  			<%= u.event_occured %> </div>
 
-		  		<div class="col-md-6">
-		  			<%= u.description %> </div>
-
-		  		<div class="col-md-1">
-		  			<%= link_to "Link", u.url %> </div>
+		  		<div class="col-md-7">
+		  			<%= u.description %> <%= link_to "Link", u.url, class: "update-link" %>. </div>
 
 		  		<div class="col-md-2 buttons">
 			  		<%= fa_icon "thumbs-o-down" %>
