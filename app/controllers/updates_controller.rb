@@ -1,5 +1,5 @@
 class UpdatesController < ApplicationController
-    before_action :check_access, only: [:index, :new, :create, :edit, :delete]
+    before_action :check_access, only: [:index, :edit, :delete, :approve, :reject]
 
   def index
     @updates = Update.order(:created_at)
@@ -67,7 +67,7 @@ class UpdatesController < ApplicationController
   protected
   def check_access
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
-    redirect_to projects_path and return unless (@current_user && @current_user.volunteer)
+    redirect_to root_path and return unless (@current_user && @current_user.volunteer)
   end
 
 end

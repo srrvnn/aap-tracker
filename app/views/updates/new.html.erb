@@ -27,7 +27,7 @@
           <%= label_tag(:url, "Link") %>
           <%= f.text_field :url, :class => "form-control" %> </div>
 
-        <% unless current_user.official %>
+        <% unless current_user && current_user.official %>
             <div class="form-group">
                 <%= label_tag(:update_positive_true, "Positive Reponse:") %>
                 <%= f.radio_button("positive", "true") %>

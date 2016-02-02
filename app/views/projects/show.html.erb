@@ -51,12 +51,7 @@
     <div class="project-updates">
 
         <div class="project-timeline">
-
-        <% if current_user %>
-            <%= link_to "Add a response", { controller: "updates", action: "new", project_id: @project.id }, class: "project-update new" %>
-        <% end %>
-
-        </div>
+            <%= link_to "Add a response", { controller: "updates", action: "new", project_id: @project.id }, class: "project-update new" %> </div>
 
         <% for u in @updates %>
 
