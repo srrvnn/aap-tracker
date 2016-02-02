@@ -1,7 +1,30 @@
-<h3> Responses for All Projects </h3>
+<div class="container aapt-page">
 
-<% @updates.each do |u| %>
-  <h4><%= u.title %></h4>
-  <p><%= u.description %></p>
-  <p><%= u.url %></p>
-<% end %>
+	<div class="updates-title">
+		<h2> All Responses </h2> </div>
+
+	<div class="updates-table">
+
+		<% @updates.each do |u| %>
+
+			<div class="row">
+		  		<div class="col-md-3">
+		  			<%= u.event_occured %> </div>
+
+		  		<div class="col-md-6">
+		  			<%= u.description %> </div>
+
+		  		<div class="col-md-1">
+		  			<%= link_to "Link", u.url %> </div>
+
+		  		<div class="col-md-2 buttons">
+			  		<%= fa_icon "thumbs-o-down" %>
+		  			<%= fa_icon "thumbs-o-up" %> </div>
+
+		  	</div>
+
+		<% end %>
+
+	</div>
+
+</div>

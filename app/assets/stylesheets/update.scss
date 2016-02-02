@@ -55,3 +55,51 @@ form.new_update .form-control {
 	padding: 25px;
 	margin: 10px 0;
 }
+
+
+.updates-title {
+
+  position: relative;
+  margin-bottom: 50px;
+  border-bottom: 1px solid #777;
+}
+
+
+.updates-table {
+
+	font-size: 18px;
+	text-align: left;
+}
+
+.updates-table .buttons .fa {
+
+	background: #ececec;
+	border-radius: 10px;
+	padding: 10px 25px;
+	margin: 0px 5px;
+	cursor: pointer;
+}
+
+.updates-table .buttons .fa-thumbs-o-down {
+
+	&:hover {
+
+		color: white;
+		background-color: #F7464A;
+	}
+}
+
+.updates-table .buttons .fa-thumbs-o-up {
+
+	&:hover {
+
+		color: white;
+		background-color: #46BFBD;
+	}
+}
+
+.updates-table .row {
+
+    margin: 40px 0;
+    line-height: 40px;
+}
