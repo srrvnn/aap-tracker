@@ -20,7 +20,6 @@ class User < ActiveRecord::Base
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.official = _permissions['official']
       user.volunteer = _permissions['volunteer']
-      pp user
       user.save!
     end
 
@@ -32,8 +31,6 @@ class User < ActiveRecord::Base
       _groups = facebook.get_connections("me", "admined_groups")
       puts "Groups from Facebook"
       pp _groups
-      pp Rails.application.secrets.fb_officials_group_id.to_s
-      pp Rails.application.secrets.fb_volunters_group_id.to_s
 
       _permissions = Hash.new
       _permissions['official'] = _groups.any?{|a| a["id"] == Rails.application.secrets.fb_officials_group_id.to_s }
