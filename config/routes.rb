@@ -14,6 +14,13 @@ Rails.application.routes.draw do
 
   resources :updates, :only => [:index]
 
+  resources :updates do
+      member do
+        put :approve
+        put :reject
+      end
+  end
+
 end
 
 

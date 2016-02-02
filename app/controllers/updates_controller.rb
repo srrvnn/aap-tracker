@@ -16,6 +16,22 @@ class UpdatesController < ApplicationController
     @project = Project.find(params[:project_id])
   end
 
+  def approve
+    @update = Update.find(params[:id])
+    @approved_count = @update.approved_count
+    @update.update_attributes(approved_count: @approved_count + 1)
+
+    redirect_to updates_path
+  end
+
+  def reject
+    @update = Update.find(params[:id])
+    @rejected_count = @update.rejected_count
+    @update.update_attributes(rejected_count: @rejected_count + 1)
+
+    redirect_to updates_path
+  end
+
   def create
     @update = Update.new update_params
     if @current_user.official

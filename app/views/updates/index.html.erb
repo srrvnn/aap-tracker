@@ -9,14 +9,19 @@
 
 			<div class="row">
 		  		<div class="col-md-3">
-		  			<%= u.event_occured %> </div>
+		  			<%= u.event_occured.to_time.strftime('%Y - %^b - %d at %I:%M %p') %> </div>
 
 		  		<div class="col-md-7">
 		  			<%= u.description %> <%= link_to "Link", u.url, class: "update-link" %>. </div>
 
 		  		<div class="col-md-2 buttons">
-			  		<%= fa_icon "thumbs-o-down" %>
-		  			<%= fa_icon "thumbs-o-up" %> </div>
+		  			<%= button_to reject_update_path(id: u.id), :method => :put do %>
+		  				<% fa_icon("thumbs-o-down") %>
+		  			<% end %>
+		  			<%= button_to approve_update_path(id: u.id), :method => :put do %>
+		  				<% fa_icon("thumbs-o-up") %>
+		  			<% end %>
+		  			</div>
 
 		  	</div>
 

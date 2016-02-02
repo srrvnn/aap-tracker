@@ -76,7 +76,7 @@ form.new_update .form-control {
 	background: #ececec;
 	border-radius: 10px;
 	padding: 10px 25px;
-	margin: 0px 5px;
+	margin: 0;
 	cursor: pointer;
 }
 
@@ -106,4 +106,18 @@ form.new_update .form-control {
 
 .updates-table .update-link {
     margin: 0 0 0 10px;
+}
+
+.updates-table form {
+
+	display: inline-block;
+}
+
+.updates-table form button {
+
+    background: none;
+    padding: 0;
+    margin: 0 5px;
+    border: none;
+    display: inline-block;
 }
