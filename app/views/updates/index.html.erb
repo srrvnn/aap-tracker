@@ -1,18 +1,18 @@
 <div class="container aapt-page">
 
 	<div class="updates-title">
-		<h2> All Responses </h2> </div>
+		<h2> All Public Responses </h2> </div>
 
 	<div class="updates-table">
 
 		<% @updates.each do |u| %>
 
 			<div class="row">
-		  		<div class="col-md-3">
-		  			<%= u.event_occured.to_time.strftime('%Y - %^b - %d at %I:%M %p') %> </div>
 
-		  		<div class="col-md-7">
-		  			<%= u.description %> <%= link_to "Link", u.url, class: "update-link" %>. </div>
+		  		<div class="col-md-10">
+		  			<%= u.event_occured.to_time.strftime('%Y - %^b - %d at %I:%M %p') %>
+		  			&mdash; <%= link_to "Link", u.url, class: "update-link" %> <br/>
+		  			<%= u.description %> </div>
 
 		  		<div class="col-md-2 buttons">
 		  			<%= button_to approve_update_path(id: u.id), :method => :put do %>

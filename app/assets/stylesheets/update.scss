@@ -88,6 +88,11 @@ form.new_update .form-control {
 		color: white;
 		background-color: #F7464A;
 	}
+
+	&.done:hover {
+
+		color: black;
+	}
 }
 
 .updates-table .buttons .fa-thumbs-o-up {
@@ -98,16 +103,17 @@ form.new_update .form-control {
 		color: white;
 		background-color: #46BFBD;
 	}
+
+	&.done:hover {
+
+		color: black;
+	}
 }
 
 .updates-table .row {
 
     margin: 40px 0;
     line-height: 40px;
-}
-
-.updates-table .update-link {
-    margin: 0 0 0 10px;
 }
 
 .updates-table form {

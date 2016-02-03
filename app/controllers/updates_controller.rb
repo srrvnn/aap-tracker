@@ -7,9 +7,11 @@ class UpdatesController < ApplicationController
 
     @upvoted_updates = @current_user.find_up_voted_items
     @downvoted_updates = @current_user.find_down_voted_items
-    @new_updates = Update.all - @upvoted_updates - @downvoted_updates
+    @new_updates = Update.where(official: false) - @upvoted_updates - @downvoted_updates
 
     @updates = (@new_updates + @upvoted_updates + @downvoted_updates)
+
+    # @updates = Update.where(official: false)
 
     # redirect_to project_path(params[:project_id])
   end
