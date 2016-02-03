@@ -12,7 +12,7 @@
 		  			<%= u.event_occured.to_time.strftime('%Y - %^b - %d at %I:%M %p') %> </div>
 
 		  		<div class="col-md-7">
-		  			<%= u.votes_for.up.size %> <%= u.votes_for.down.size %> <%= u.description %> <%= link_to "Link", u.url, class: "update-link" %>. </div>
+		  			<%= u.description %> <%= link_to "Link", u.url, class: "update-link" %>. </div>
 
 		  		<div class="col-md-2 buttons">
 		  			<%= button_to approve_update_path(id: u.id), :method => :put do %>

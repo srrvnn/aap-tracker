@@ -82,29 +82,21 @@ form.new_update .form-control {
 
 .updates-table .buttons .fa-thumbs-o-down {
 
-	&:hover {
+	&:hover,
+	&.done {
 
 		color: white;
 		background-color: #F7464A;
-	}
-
-	&.done {
-
-		border: 1px solid #F7464A;
 	}
 }
 
 .updates-table .buttons .fa-thumbs-o-up {
 
-	&:hover {
+	&:hover,
+	&.done {
 
 		color: white;
 		background-color: #46BFBD;
-	}
-
-	&.done {
-
-		border: 1px solid #46BFBD;
 	}
 }
 
