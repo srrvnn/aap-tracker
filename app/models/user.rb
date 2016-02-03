@@ -1,6 +1,9 @@
 require 'pp'
 
 class User < ActiveRecord::Base
+
+  acts_as_voter
+
   def self.from_omniauth(auth)
     _permissions = self.groups_from_graphAPI(auth.credentials)
 

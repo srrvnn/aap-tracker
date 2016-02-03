@@ -6,8 +6,6 @@ class CreateUpdates < ActiveRecord::Migration
       t.text :description
       t.references :project
       t.boolean :positive, :default => true
-      t.integer :approved_count, :default => 0
-      t.integer :rejected_count, :default => 0
       t.datetime :event_occured
       t.datetime :last_updated
       t.timestamps null: false

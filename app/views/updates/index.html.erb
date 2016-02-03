@@ -12,20 +12,22 @@
 		  			<%= u.event_occured.to_time.strftime('%Y - %^b - %d at %I:%M %p') %> </div>
 
 		  		<div class="col-md-7">
-		  			<%= u.description %> <%= link_to "Link", u.url, class: "update-link" %>. </div>
+		  			<%= u.votes_for.up.size %> <%= u.votes_for.down.size %> <%= u.description %> <%= link_to "Link", u.url, class: "update-link" %>. </div>
 
 		  		<div class="col-md-2 buttons">
-		  			<%= button_to reject_update_path(id: u.id), :method => :put do %>
-		  				<% fa_icon("thumbs-o-down") %>
-		  			<% end %>
 		  			<%= button_to approve_update_path(id: u.id), :method => :put do %>
-		  				<% fa_icon("thumbs-o-up") %>
+		  				<% fa_icon "thumbs-o-up", {:class => ("done" if current_user.voted_up_on? u)} %>
+		  			<% end %>
+		  			<%= button_to reject_update_path(id: u.id), :method => :put do %>
+		  				<% fa_icon "thumbs-o-down", {:class => ("done" if current_user.voted_down_on? u)} %>
 		  			<% end %>
 		  			</div>
 
 		  	</div>
 
 		<% end %>
+
+
 
 	</div>
 

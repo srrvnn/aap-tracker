@@ -1,8 +1,16 @@
+require 'pp'
+
 class UpdatesController < ApplicationController
     before_action :check_access, only: [:index, :edit, :delete, :approve, :reject]
 
   def index
-    @updates = Update.order(:created_at)
+
+    @upvoted_updates = @current_user.find_up_voted_items
+    @downvoted_updates = @current_user.find_down_voted_items
+    @new_updates = Update.all - @upvoted_updates - @downvoted_updates
+
+    @updates = (@new_updates + @upvoted_updates + @downvoted_updates)
+
     # redirect_to project_path(params[:project_id])
   end
 
@@ -17,17 +25,33 @@ class UpdatesController < ApplicationController
   end
 
   def approve
+
     @update = Update.find(params[:id])
-    @approved_count = @update.approved_count
-    @update.update_attributes(approved_count: @approved_count + 1)
+
+    if @current_user.voted_as_when_voted_for @update
+      @update.unliked_by @current_user
+    else
+      @update.upvote_from @current_user
+    end
+
+    # @approved_count = @update.approved_count
+    # @update.update_attributes(approved_count: @approved_count + 1)
 
     redirect_to updates_path
   end
 
   def reject
+
     @update = Update.find(params[:id])
-    @rejected_count = @update.rejected_count
-    @update.update_attributes(rejected_count: @rejected_count + 1)
+
+    if @current_user.voted_as_when_voted_for @update
+      @update.downvote_from @current_user
+    else
+      @update.undisliked_by @current_user
+    end
+
+    # @rejected_count = @update.rejected_count
+    # @update.update_attributes(rejected_count: @rejected_count + 1)
 
     redirect_to updates_path
   end

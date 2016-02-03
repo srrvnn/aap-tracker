@@ -87,6 +87,11 @@ form.new_update .form-control {
 		color: white;
 		background-color: #F7464A;
 	}
+
+	&.done {
+
+		border: 1px solid #F7464A;
+	}
 }
 
 .updates-table .buttons .fa-thumbs-o-up {
@@ -95,6 +100,11 @@ form.new_update .form-control {
 
 		color: white;
 		background-color: #46BFBD;
+	}
+
+	&.done {
+
+		border: 1px solid #46BFBD;
 	}
 }
 
