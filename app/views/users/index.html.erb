@@ -1,0 +1,41 @@
+<div class="container aapt-page">
+
+	<div class="updates-title">
+		<h2> Your friends </h2> </div>
+
+	<div class="updates-table">
+
+		<% @users.each do |u| %>
+
+			<div class="row">
+
+				<div class="col-md-1">
+					<%= image_tag("http://graph.facebook.com/"+u.uid+"/picture?type=square", :alt => u["name"]) %> </div>
+
+				<div class="col-md-9">
+					<%= u["name"] %>
+					<span class="updated-at"> Official: <%= u.official %> </span>
+					<span class="updated-at"> Volunteer: <%= u.volunteer %> </span> </div>
+
+				<div class="col-md-2 buttons">
+					<%= button_to official_user_path(id: u.id), :method => :put do %>
+						<% fa_icon "briefcase", {:class => ("done" if true)} %>
+					<% end %>
+					<%= button_to volunteer_user_path(id: u.id), :method => :put do %>
+						<% fa_icon "user", {:class => ("done" if true)} %>
+					<% end %>
+					</div>
+
+			</div>
+
+		<% end %>
+
+		<% unless @users.size > 0 %>
+
+			Your friends aren't here. Go find them.
+
+		<% end %>
+
+	</div>
+
+</div>

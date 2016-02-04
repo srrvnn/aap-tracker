@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  # get 'users/index'
+  # get 'users/promote'
+  # get 'users/demote'
+
   # devise_for :users # not sure what this is
 
   get 'auth/:provider/callback', to: 'sessions#create'
@@ -12,8 +16,15 @@ Rails.application.routes.draw do
     resources :updates
   end
 
-  resources :updates, :only => [:index]
+  resources :users, :only => [:index]
+  resources :users do
+      member do
+        put :official
+        put :volunteer
+      end
+  end
 
+  resources :updates, :only => [:index]
   resources :updates do
       member do
         put :approve

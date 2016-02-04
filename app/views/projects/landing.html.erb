@@ -26,9 +26,12 @@
           <span> 10845 </span> </p>
 
         <div class="links">
-          <%= link_to "ALL PROMISES", projects_path, id: "enter-button" %>
+          <%= link_to "PROMISES", projects_path, id: "enter-button" %>
           <% if current_user && current_user.volunteer %>
-              <%= link_to "ALL RESPONSES", updates_path, id: "enter-button" %>
+              <%= link_to "RESPONSES", updates_path, id: "enter-button" %>
+          <% end %>
+          <% if current_user && (current_user.volunteer || current_user.official) %>
+              <%= link_to fa_icon("users"), users_path, id: "enter-button" %>
           <% end %>
         </div>
 

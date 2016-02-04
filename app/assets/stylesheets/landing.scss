@@ -89,6 +89,12 @@
   text-align: center;
 }
 
+.links {
+
+  display: flex;
+  justify-content: center;
+}
+
 #enter-button {
 
   position: relative;
@@ -103,7 +109,7 @@
   font-size: 25px;
   letter-spacing: 1px;
   display: inline-block;
-  margin: 25px 14px;
+  margin: 15px;
 
   &:hover,
   &:focus {

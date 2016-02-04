@@ -16,10 +16,10 @@
 
 		  		<div class="col-md-2 buttons">
 		  			<%= button_to approve_update_path(id: u.id), :method => :put do %>
-		  				<% fa_icon "thumbs-o-up", {:class => ("done" if current_user.voted_up_on? u)} %>
+		  				<% fa_icon "briefcase", {:class => ("done" if current_user.voted_up_on? u)} %>
 		  			<% end %>
 		  			<%= button_to reject_update_path(id: u.id), :method => :put do %>
-		  				<% fa_icon "thumbs-o-down", {:class => ("done" if current_user.voted_down_on? u)} %>
+		  				<% fa_icon "user", {:class => ("done" if current_user.voted_down_on? u)} %>
 		  			<% end %>
 		  			</div>
 
