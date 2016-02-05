@@ -34,14 +34,12 @@ ActiveRecord::Schema.define(version: 20160203072103) do
     t.string   "url"
     t.text     "description"
     t.integer  "project_id"
-    t.boolean  "positive",       default: true
-    t.integer  "approved_count", default: 0
-    t.integer  "rejected_count", default: 0
+    t.boolean  "positive",      default: true
     t.datetime "event_occured"
     t.datetime "last_updated"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.boolean  "official",       default: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.boolean  "official",      default: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,7 +49,11 @@ ActiveRecord::Schema.define(version: 20160203072103) do
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
     t.boolean  "official",         default: false
+    t.string   "official_parent"
+    t.datetime "official_from"
     t.boolean  "volunteer",        default: false
+    t.string   "volunteer_parent"
+    t.datetime "volunteer_from"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
   end

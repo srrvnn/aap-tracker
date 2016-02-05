@@ -12,6 +12,8 @@ class UsersController < ApplicationController
     if @current_user.official then
       user = User.find(params[:id])
       user.official = !user.official
+      user.official_parent = @current_user.uid
+      user.official_from = DateTime.current()
       user.save!
     end
 
@@ -22,6 +24,8 @@ class UsersController < ApplicationController
     if @current_user.volunteer then
       user = User.find(params[:id])
       user.volunteer = !user.volunteer
+      user.volunteer_parent = @current_user.uid
+      user.volunteer_from = DateTime.current()
       user.save!
     end
 
