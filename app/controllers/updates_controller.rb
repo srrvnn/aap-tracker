@@ -10,9 +10,13 @@ class UpdatesController < ApplicationController
     @downvoted_updates = @current_user.find_down_voted_items
     @new_updates = Update.where(official: false) - @upvoted_updates - @downvoted_updates
 
-    @updates = (@new_updates + @upvoted_updates + @downvoted_updates)
+    @upvoted_updates = @upvoted_updates.select{|u|
+      u.created_at > DateTime.now - 120.minutes}
 
-    # @updates = Update.where(official: false)
+    @downvoted_updates = @downvoted_updates.select{|u|
+      u.created_at > DateTime.now - 120.minutes}
+
+    @updates = (@new_updates + @upvoted_updates + @downvoted_updates)
 
     # redirect_to project_path(params[:project_id])
   end
