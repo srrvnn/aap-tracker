@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
   helper ProjectsHelper
+  before_action :check_user
+  before_action :check_access, only: [:edit, :delete, :new, :create, :destroy]
 
   def landing
     @data = [
@@ -84,5 +86,15 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:sno, :title, :description, :status)
+  end
+
+  protected
+  def check_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def check_access
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    redirect_to root_path and return unless (@current_user && @current_user.volunteer)
   end
 end
