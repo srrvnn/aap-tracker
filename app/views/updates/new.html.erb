@@ -39,7 +39,11 @@
           <%= label_tag(:event_occured, "Date & Time:", class: 'date-label') %>
           <%= f.datetime_select(:event_occured, ampm: true) %> </div>
 
-
+        <div class="form-group">
+            <%= label_tag(:status, "Project Status:") %>
+            <%= f.fields_for @update.project do |p_form| %>
+              <%= p_form.select :status, @statuses, {}, {:class => "form-control"}%>
+            <% end %> </div>
 
         <div class="form-group buttons">
 

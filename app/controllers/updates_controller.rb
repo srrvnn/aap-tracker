@@ -19,7 +19,11 @@ class UpdatesController < ApplicationController
 
   def new
     @project = Project.find(params[:project_id])
+
     @update = Update.new
+    @update.project = @project
+
+    @statuses = Project::STATUSES
   end
 
   def edit
@@ -61,11 +65,16 @@ class UpdatesController < ApplicationController
 
   def create
     @update = Update.new update_params
-    if @current_user && @current_user.official
-      @update.positive = true
-      @update.official = true
-    end
+    @project = Project.find(params[:project_id])
+
     if verify_recaptcha(model: @update)
+
+      if @current_user && @current_user.official
+        @update.positive = true
+        @update.official = true
+        @project.update_attribute(:status, params[:update][:project][:status])
+      end
+
       @update.save
     end
     redirect_to project_path(update_params[:project_id])
