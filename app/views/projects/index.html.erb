@@ -52,6 +52,18 @@
 
     <% end %>
 
+    <% if @projects.count < 70 %>
+
+      <div class="row project-row">
+
+        <div class="col-md-10 project-description">
+
+          <span class="project-name"> Go back to <%= link_to "All Projects", projects_path %>.  </span> </div>
+
+      </div>
+
+    <% end %>
+
     <% if @projects.count < 1 %>
 
       <div class="row project-search-empty-row">
