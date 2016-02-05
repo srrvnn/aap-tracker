@@ -96,7 +96,7 @@ class ProjectsController < ApplicationController
       @updates = @project.updates.order('event_occured DESC')
     end
 
-    @updates = @updates.select{|u| u.official || (u.votes_for.up.size > 0 && (u.created_at < DateTime.now - 7))}
+    @updates = @updates.select{|u| u.official || (u.votes_for.up.size > 2 && (u.created_at < DateTime.now - 7))}
 
   end
 
