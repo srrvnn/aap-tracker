@@ -28,11 +28,21 @@ class ProjectsController < ApplicationController
       @projects = Project.where("description LIKE ?", "%#{params[:search]}%").order(:sno)
     end
 
-    @num_total = @projects.count
-    @num_not_started = @projects.where("status = ?", Project::STATUSES["Not Started"]).count
-    @num_in_progress = @projects.where("status = ?", Project::STATUSES["In Progress"]).count
-    @num_partially_fulfilled = @projects.where("status = ?", Project::STATUSES["Partially Fulfilled"]).count
-    @num_fulfilled = @projects.where("status = ?", Project::STATUSES["Fulfilled"]).count
+    @count = {}
+
+    @count["total"] = @projects.count
+    @count["uninitiated"] = @projects.where("status = ?", Project::STATUSES["Not Started"]).count
+    @count["initiated"] = @projects.where("status = ?", Project::STATUSES["In Progress"]).count
+    @count["blocked"] = @projects.where("status = ?", Project::STATUSES["Partially Fulfilled"]).count
+    @count["fulfilled"] = @projects.where("status = ?", Project::STATUSES["Fulfilled"]).count
+
+    @percent = {}
+
+    @percent["uninitiated"] = @count["total"] == 0 ? 0 : @count["uninitiated"] * 100 / @count["total"]
+    @percent["initiated"] = @count["total"] == 0 ? 0 : @count["initiated"] * 100 / @count["total"]
+    @percent["blocked"] = @count["total"] == 0 ? 0 : @count["blocked"] * 100 / @count["total"]
+    @percent["fulfilled"] = @count["total"] == 0 ? 0 : @count["fulfilled"] * 100 / @count["total"]
+
   end
 
   def new

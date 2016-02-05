@@ -125,23 +125,11 @@
 }
 
 
-
-
-
 .page-full {
   position: relative;
   top: 60px;
 }
 
-#search-bar {
-  margin: 20px 0;
-}
-
-.search-bar {
-  width: 70%;
-  position: relative;
-  left:15%;
-}
 #progress-meters {
   position: relative;
   top: 1.5em;
@@ -195,24 +183,81 @@
   top: 1em;
 }
 
-
 .project-status {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  border-radius: 10px;
-  margin: 10px;
+
+  line-height: 48px;
 }
 
-.project-row {
+.project-status-color {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  line-height: 48px;
+  /* margin: 21px; */
+  vertical-align: middle;
+}
+
+.project-row,
+.project-search-empty-row {
+  margin: 10px auto !important;
+  width: 80%;
   padding: 10px 5px;
+  margin: 10px 0;
+}
+
+.project-row:hover {
+
+    background: #eee;
+    border-radius: 5px;
+}
+
+.project-text {
+  font-size: 15px;
+  padding: 5px 0;
+  line-height: 30px;
+}
+
+.project-name {
+  display: block;
+  font-size: 24px;
+  /* padding: 10px 0; */
+  /* border: 1px solid blue; */
+  line-height: 48px;
+  /* margin: 10px 0; */
 }
 
 #project-container {
   padding-top: 20px;
 }
-.status-cell {
-  min-width: 60px;
+.project-status {
+  text-align: right;
+}
+
+.project-search {
+
+  margin: 20px auto;
+  width: 80%;
+  position: relative;
+}
+
+
+.project-search .project-search-input {
+
+  padding: 30px 35px;
+  font-size: 20px;
+}
+
+.project-search .btn-search {
+
+  font-size: 20px;
+  padding: 10px 20px;
+}
+
+.project-search-empty {
+
+  font-size: 18px;
+  margin: 30px 20px;
 }
 
 .red {
