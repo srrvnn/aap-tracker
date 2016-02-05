@@ -139,7 +139,7 @@
 .project-progress {
   overflow: hidden;
   height: 35px;
-  margin: 15px 0;
+  margin: 50px 0;
   background-color: #D8D8D8;
   border-radius: 4px;
 }
@@ -152,6 +152,14 @@
   height: 100%;
   line-height: 35px;
   overflow: visible;
+  position: relative;
+}
+
+.project-progress-link {
+
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
 
 .project-progress-bar span {
@@ -292,3 +300,9 @@
   background-color: #67AFAD;
 }
 
+
+.project-charts figure {
+
+  text-align: center;
+  margin: 50px 0;
+}

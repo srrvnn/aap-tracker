@@ -26,8 +26,36 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.order(:sno)
 
+    @data = {
+      labels: ["January", "February", "March", "April", "May", "June", "July"],
+      datasets: [
+          {
+              label: "Official Responses",
+              fillColor: "rgba(151,187,205,0.2)",
+              strokeColor: "rgba(151,187,205,1)",
+              pointColor: "rgba(151,187,205,1)",
+              pointStrokeColor: "#fff",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgba(151,187,205,1)",
+              data: [28, 48, 40, 19, 86, 27, 90]
+          }
+      ]
+    }
+    @options = {
+      animation: false,
+      width: 840
+    }
+
     if params[:search].present?
       @projects = Project.where("description LIKE ?", "%#{params[:search]}%").order(:sno)
+    end
+
+    if params[:category].present?
+      @projects = @projects.where("status = ?", Project::STATUSES[params[:status]])
+    end
+
+    if params[:status].present?
+      @projects = @projects.where("status = ?", Project::STATUSES[params[:status]])
     end
 
     @count = {}
@@ -40,10 +68,12 @@ class ProjectsController < ApplicationController
 
     @percent = {}
 
-    @percent["uninitiated"] = @count["total"] == 0 ? 0 : @count["uninitiated"] * 100 / @count["total"]
     @percent["initiated"] = @count["total"] == 0 ? 0 : @count["initiated"] * 100 / @count["total"]
     @percent["blocked"] = @count["total"] == 0 ? 0 : @count["blocked"] * 100 / @count["total"]
     @percent["fulfilled"] = @count["total"] == 0 ? 0 : @count["fulfilled"] * 100 / @count["total"]
+
+    # calculate the left over to avoid errors due to round off
+    @percent["uninitiated"] = @count["total"] == 0 ? 0 : 100 - @percent["initiated"] - @percent["blocked"] - @percent["fulfilled"]
 
   end
 
