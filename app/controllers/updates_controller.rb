@@ -1,6 +1,7 @@
 require 'pp'
 
 class UpdatesController < ApplicationController
+    before_action :check_user
     before_action :check_access, only: [:index, :edit, :delete, :approve, :reject]
 
   def index
@@ -60,10 +61,9 @@ class UpdatesController < ApplicationController
 
   def create
     @update = Update.new update_params
-    if @current_user.official
+    if @current_user && @current_user.official
       @update.positive = true
       @update.official = true
-      @update.approved_count = 3
     end
     if verify_recaptcha(model: @update)
       @update.save
@@ -91,6 +91,11 @@ class UpdatesController < ApplicationController
   end
 
   protected
+
+  def check_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
   def check_access
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
     redirect_to root_path and return unless (@current_user && @current_user.volunteer)
