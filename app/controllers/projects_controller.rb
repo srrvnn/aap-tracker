@@ -74,7 +74,6 @@ class ProjectsController < ApplicationController
 
     # calculate the left over to avoid errors due to round off
     @percent["uninitiated"] = @count["total"] == 0 ? 0 : 100 - @percent["initiated"] - @percent["blocked"] - @percent["fulfilled"]
-
   end
 
   def new
@@ -96,6 +95,9 @@ class ProjectsController < ApplicationController
     else
       @updates = @project.updates.order('event_occured DESC')
     end
+
+    @updates = @updates.select{|u| u.official || (u.votes_for.up.size > 0 && (u.created_at < DateTime.now - 7))}
+
   end
 
   def edit
