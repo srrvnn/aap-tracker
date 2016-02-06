@@ -58,10 +58,10 @@ class ProjectsController < ApplicationController
     # stuff for the graph
 
     @data = {
-      labels: ["Feb 2015"],
+      labels: ["FEB 2015"],
       datasets: [
           {
-              label: "Official Responses",
+              label: "Number of Official Responses over time.",
               fillColor: "rgba(151,187,205,0.2)",
               strokeColor: "rgba(151,187,205,1)",
               pointColor: "rgba(151,187,205,1)",
@@ -75,7 +75,8 @@ class ProjectsController < ApplicationController
 
     @options = {
       animation: false,
-      width: 840
+      width: 840,
+      generateLegend: true
     }
 
     # compute numbers
@@ -87,10 +88,12 @@ class ProjectsController < ApplicationController
     day1 = DateTime.parse("14-02-2015")
     dayn = DateTime.current
 
-    n = (dayn - day1).to_i
-    period = n / 8
+    no_of_windows = 6
 
-    for i in 1..8 do
+    n = (dayn - day1).to_i
+    period = n / no_of_windows
+
+    for i in 1..no_of_windows do
       window_start = (day1 + (period * (i-1)).days)
       window_end = (day1 + (period * i).days)
       window_count = @updates.select{|u|
@@ -101,9 +104,10 @@ class ProjectsController < ApplicationController
     end
 
     window_count = @updates.select{|u|
-      (u.event_occured > (day1 + period * 8)) && u.event_occured < dayn}.count
+      (u.event_occured > (day1 + period * no_of_windows)) && u.event_occured < dayn}.count
 
-      @data[:labels].push(dayn.to_time.strftime('%^b %Y'))
+      @data[:labels].push("TODAY")
+      # @data[:labels].push(dayn.to_time.strftime('%d %^b %Y'))
       @data[:datasets][0][:data].push(window_count)
   end
 
