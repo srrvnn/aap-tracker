@@ -207,11 +207,24 @@
 }
 
 .project-row,
+.project-search-row,
 .project-search-empty-row {
   margin: 10px auto !important;
   width: 80%;
   padding: 10px 5px;
   margin: 10px 0;
+}
+
+.project-search-row .project-message {
+
+  margin: 10px 0;
+}
+
+.project-search-row .project-message i,
+.project-search-row .project-message b {
+
+  display: inline-block;
+  padding: 0 10px;
 }
 
 .project-row:hover {

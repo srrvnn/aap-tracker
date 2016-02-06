@@ -37,6 +37,18 @@
 
   <div class="col-md-12">
 
+    <% if (params[:search] || params[:status]) %>
+
+      <div class="row project-search-row">
+
+        <div class="col-md-10 project-message">
+
+          Searching for <i>&mdash;<%= params[:search] ||= 'all promises' %>&mdash;</i> with <b>&mdash;<%= params[:status] ||= 'any' %>&mdash;</b> status: </div>
+
+      </div>
+
+    <% end %>
+
     <% @projects.each do |p| %>
 
       <div class="row project-row">
@@ -54,11 +66,13 @@
 
     <% if @projects.count < 70 && @projects.count > 0 %>
 
-      <div class="row project-row">
+      <div class="row project-search-row">
 
-        <div class="col-md-10 project-description">
+        <div class="col-md-10 project-message">
 
-          <span class="project-name"> Go back to <%= link_to "All Projects", projects_path %>.  </span> </div>
+              Go back to seeing <%= link_to "All Promises", projects_path %>.
+
+           </div>
 
       </div>
 
