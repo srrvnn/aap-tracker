@@ -15,11 +15,11 @@
 				<div class="col-md-9">
 					<%= u["name"] %>
 					<span class="updated-at"> Official: <%= u.official %> </span>
+					<span class="updated-at"> Volunteer: <%= u.volunteer %> </span> <br/>
 					<span class="updated-at"> Official Parent: <%= u.official_parent %> </span>
-					<span class="updated-at"> Official From: <%= u.official_from %> </span>
-					<span class="updated-at"> Volunteer: <%= u.volunteer %> </span>
+					<span class="updated-at"> Official From: <%= u.official_from %> </span> <br/>
 					<span class="updated-at"> Volunteer Parent: <%= u.volunteer_parent %> </span>
-					<span class="updated-at"> Volunteer From: <%= u.volunteer_parent %> </span> </div>
+					<span class="updated-at"> Volunteer From: <%= u.volunteer_from %> </span> </div>
 
 				<div class="col-md-2 buttons">
 					<%= button_to official_user_path(id: u.id), :method => :put do %>

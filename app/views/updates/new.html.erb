@@ -24,14 +24,14 @@
             <%= f.text_area :description, :rows => 8, :class => "form-control" %> </div>
 
         <div class="form-group">
-          <%= label_tag(:url, "Link") %>
+          <%= label_tag(:url, "Proof (optional)") %>
           <%= f.text_field :url, :class => "form-control" %> </div>
 
         <% unless current_user && current_user.official %>
             <div class="form-group">
-                <%= label_tag(:update_positive_true, "Positive Reponse:") %>
+                <%= label_tag(:update_positive_true, "Positive Response:") %>
                 <%= f.radio_button("positive", "true") %>
-                <%= label_tag(:update_positive_false, "Negative Reponse:") %>
+                <%= label_tag(:update_positive_false, "Negative Response:") %>
                 <%= f.radio_button("positive", "false") %> </div>
         <% end %>
 
