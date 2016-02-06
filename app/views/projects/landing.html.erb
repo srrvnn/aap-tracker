@@ -4,9 +4,17 @@
     <div id="landing-content" class="row">
 
       <div class="positive-chart col-md-6 col-sm-12">
-        <%= doughnut_chart @data, @options %>
-        <p> Promises in green are those with more than 50% positive public responses over time. </p>
-          </div>
+        <%= doughnut_chart @doughnut_data, @doughtnut_options %>
+
+        <% if @projects_success > 0 %>
+
+          <p> Promises in green are those with more than 50% positive public responses over time. </p>
+
+        <% elsif %>
+
+          <p> Promises will appear in green after a majority positive response from the public. </p>
+
+        <% end %> </div>
 
       <div class="numbers col-md-6 col-sm-12">
 

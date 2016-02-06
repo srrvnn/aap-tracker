@@ -1,29 +1,57 @@
+require 'pp'
+
 class ProjectsController < ApplicationController
+
   helper ProjectsHelper
   before_action :check_user
   before_action :check_access, only: [:edit, :delete, :new, :create, :destroy]
 
   def landing
-    @data = [
+
+    @updates_all_per_project = Update.group("project_id").count
+
+    @updates_positive = Update.where(positive: true).order(:project_id)
+    @updates_postive_approved = @updates_positive.select{|u| u.count_votes_up > 2}
+    @updates_postive_approved_per_project = {}
+    @updates_postive_approved.chunk{|u| u.project_id }.each{ |project, ary| @updates_postive_approved_per_project[project] = ary.count }
+
+    # @updates_all_per_project = {4 => 10, 5 => 10}
+    # @updates_postive_approved_per_project = {4 => 6, 5 => 9}
+
+    @projects_success = @updates_all_per_project.count{ |p| (@updates_postive_approved_per_project[p[0]] ||= 0) * 2 > p[1] }
+
+    # puts 'POSITIVE PROJECTS'
+    # puts '-----------------'
+    # pp @updates_all_per_project
+    # pp @updates_postive_approved_per_project
+    # pp @projects_success
+
+    # @projects_success = 0
+
+    @doughnut_data = [
+
         {
-            value: 27,
+            value: @projects_success,
             color: "#46BFBD",
             highlight: "#5AD3D1",
             label: "Promises with Positive Public Responses"
         },
         {
-            value: 43,
+            value: 70 - @projects_success,
             color:"#ECECEC",
             highlight: "#F6F6F6",
             label: "Others"
         }
     ]
-    @options = {
+
+    @doughtnut_options = {
+
       animation: false
     }
   end
 
   def index
+
     @projects = Project.order(:sno)
 
     if params[:search].present?
@@ -85,13 +113,12 @@ class ProjectsController < ApplicationController
     @updates = Update.where(project_id: @project_ids)
     @updates = @updates.select{|u| u.official}
 
+    no_of_windows = 6
     day1 = DateTime.parse("14-02-2015")
     dayn = DateTime.current
 
-    no_of_windows = 6
-
-    n = (dayn - day1).to_i
-    period = n / no_of_windows
+    no_of_days = (dayn - day1).to_i
+    period = no_of_days / no_of_windows
 
     for i in 1..no_of_windows do
       window_start = (day1 + (period * (i-1)).days)
@@ -106,9 +133,9 @@ class ProjectsController < ApplicationController
     window_count = @updates.select{|u|
       (u.event_occured > (day1 + period * no_of_windows)) && u.event_occured < dayn}.count
 
-      @data[:labels].push("TODAY")
-      # @data[:labels].push(dayn.to_time.strftime('%d %^b %Y'))
-      @data[:datasets][0][:data].push(window_count)
+    @data[:labels].push("TODAY")
+    @data[:datasets][0][:data].push(window_count)
+
   end
 
   def new
@@ -132,7 +159,6 @@ class ProjectsController < ApplicationController
     end
 
     @updates = @updates.select{|u| u.official || (u.votes_for.up.size > 2 && (u.created_at < DateTime.now - 7))}
-
   end
 
   def edit
