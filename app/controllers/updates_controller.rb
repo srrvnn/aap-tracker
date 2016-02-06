@@ -39,11 +39,20 @@ class UpdatesController < ApplicationController
 
     @update = Update.find(params[:id])
 
-    if @current_user.voted_as_when_voted_for @update
+    puts case @current_user.voted_as_when_voted_for @update
+    when true
       @update.unliked_by @current_user
-    else
-      @update.upvote_from @current_user
+    when false
+      @update.liked_by @current_user
+    when nil
+      @update.liked_by @current_user
     end
+
+    # if
+    #   @update.unliked_by @current_user
+    # else
+    #   @update.upvote_from @current_user
+    # end
 
     # @approved_count = @update.approved_count
     # @update.update_attributes(approved_count: @approved_count + 1)
@@ -55,11 +64,21 @@ class UpdatesController < ApplicationController
 
     @update = Update.find(params[:id])
 
-    if @current_user.voted_as_when_voted_for @update
-      @update.downvote_from @current_user
-    else
+    puts case @current_user.voted_as_when_voted_for @update
+
+    when true
+      @update.disliked_by @current_user
+    when false
       @update.undisliked_by @current_user
+    when nil
+      @update.disliked_by @current_user
     end
+
+    # if @current_user.voted_as_when_voted_for @update
+    #   @update.downvote_from @current_user
+    # else
+    #   @update.undisliked_by @current_user
+    # end
 
     # @rejected_count = @update.rejected_count
     # @update.update_attributes(rejected_count: @rejected_count + 1)
