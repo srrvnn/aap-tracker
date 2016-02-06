@@ -1,16 +1,14 @@
 Rails.application.routes.draw do
 
-  # get 'users/index'
-  # get 'users/promote'
-  # get 'users/demote'
-
   # devise_for :users # not sure what this is
 
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
+  get "/pages/:page" => "pages#show"
 
   root 'projects#landing'
+
 
   resources :projects do
     resources :updates
@@ -32,9 +30,8 @@ Rails.application.routes.draw do
       end
   end
 
+
 end
-
-
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

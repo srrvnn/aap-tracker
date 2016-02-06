@@ -42,18 +42,12 @@
   </div>
 </div>
 
-<div name="about" id="about" class="page">
-  <h2 class="title">ABOUT</h2>
-  <div id="about-logos">
-	  <%=image_tag("logo.png", alt: "New Delhi Government Logo", id:"delhi-logo", class:"logo")%>
-	  <%=image_tag("stanford-logo.png", alt: "Stanford University Logo", id:"stanford-logo", class:"logo")%>
-	</div>
-  <p class="about-description">This Manifesto Tracker is a project of the Aam Aadmi Party-led Government of Delhi. It was built to keep track of the promises made by the government in their election manifesto. The manifesto tracker will be used by the government to inform the citizens of work in progress and get feedback on finished projects. This will truly democratize the political system, make government accountable to its people and make politics mean more than just elections. This is a next generation tool to ensure political accountability in Delhi.</p>
-</div>
-</div>
-<div name="contact" id="contact" class="page">
-	<h2 class="title">CONTACT US</h2>
-  <p class="about-description">This website was created as part of the CS for Social Good class (CS 90SI) at Stanford. This is an open source project hosted on <a href="https://github.com/delhigov/manifesto-tracker">github</a>. Please visit our github page for updates on our progress (this is still a work in progress), to give feedback, report bugs, or contribute. Here is our
+<div name="footer" id="footer" class="footer">
 
-    <a href="/privacy_policy.html"> Privacy Policy </a>. </p>
+  <ul>
+
+    <li> <%= link_to "About", "/pages/about" %> </li>
+    <li> <%= link_to "Privacy Policy", "/pages/privacy.html" %> </li>
+
+  </ul>
 </div>
