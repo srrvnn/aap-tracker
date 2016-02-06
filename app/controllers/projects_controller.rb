@@ -80,7 +80,9 @@ class ProjectsController < ApplicationController
 
     # compute numbers
 
-    @updates = Update.where(official: true)
+    @project_ids = @projects.map { |r| r["id"] }
+    @updates = Update.where(project_id: @project_ids)
+    @updates = @updates.select{|u| u.official}
 
     day1 = DateTime.parse("14-02-2015")
     dayn = DateTime.current
