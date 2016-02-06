@@ -26,26 +26,6 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.order(:sno)
 
-    @data = {
-      labels: ["January", "February", "March", "April", "May", "June", "July"],
-      datasets: [
-          {
-              label: "Official Responses",
-              fillColor: "rgba(151,187,205,0.2)",
-              strokeColor: "rgba(151,187,205,1)",
-              pointColor: "rgba(151,187,205,1)",
-              pointStrokeColor: "#fff",
-              pointHighlightFill: "#fff",
-              pointHighlightStroke: "rgba(151,187,205,1)",
-              data: [28, 48, 40, 19, 86, 27, 90]
-          }
-      ]
-    }
-    @options = {
-      animation: false,
-      width: 840
-    }
-
     if params[:search].present?
       @projects = Project.where("description LIKE ?", "%#{params[:search]}%").order(:sno)
     end
@@ -74,6 +54,55 @@ class ProjectsController < ApplicationController
 
     # calculate the left over to avoid errors due to round off
     @percent["uninitiated"] = @count["total"] == 0 ? 0 : 100 - @percent["initiated"] - @percent["blocked"] - @percent["fulfilled"]
+
+    # stuff for the graph
+
+    @data = {
+      labels: ["Feb 2015"],
+      datasets: [
+          {
+              label: "Official Responses",
+              fillColor: "rgba(151,187,205,0.2)",
+              strokeColor: "rgba(151,187,205,1)",
+              pointColor: "rgba(151,187,205,1)",
+              pointStrokeColor: "#fff",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgba(151,187,205,1)",
+              data: [0]
+          }
+      ]
+    }
+
+    @options = {
+      animation: false,
+      width: 840
+    }
+
+    # compute numbers
+
+    @updates = Update.where(official: true)
+
+    day1 = DateTime.parse("14-02-2015")
+    dayn = DateTime.current
+
+    n = (dayn - day1).to_i
+    period = n / 8
+
+    for i in 1..8 do
+      window_start = (day1 + (period * (i-1)).days)
+      window_end = (day1 + (period * i).days)
+      window_count = @updates.select{|u|
+        u.event_occured > window_start && u.event_occured < window_end}.count
+
+      @data[:labels].push(window_end.to_time.strftime('%^b %Y'))
+      @data[:datasets][0][:data].push(window_count)
+    end
+
+    window_count = @updates.select{|u|
+      (u.event_occured > (day1 + period * 8)) && u.event_occured < dayn}.count
+
+      @data[:labels].push(dayn.to_time.strftime('%^b %Y'))
+      @data[:datasets][0][:data].push(window_count)
   end
 
   def new
