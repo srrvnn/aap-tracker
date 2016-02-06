@@ -81,6 +81,11 @@ class UpdatesController < ApplicationController
 
       @update.save
     end
+
+    unless @current_user && @current_user.official
+      flash[:notice] = "Response successfully saved. Will appear here, after moderation in 7 days."
+    end
+
     redirect_to project_path(update_params[:project_id])
   end
 
