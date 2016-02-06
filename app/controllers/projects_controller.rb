@@ -27,7 +27,7 @@ class ProjectsController < ApplicationController
     @projects = Project.order(:sno)
 
     if params[:search].present?
-      @projects = Project.where("description LIKE ?", "%#{params[:search]}%").order(:sno)
+      @projects = Project.where("LOWER(description) LIKE LOWER(?)", "%#{params[:search]}%").order(:sno)
     end
 
     if params[:category].present?
