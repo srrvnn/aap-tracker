@@ -5,6 +5,10 @@
 
 	<div class="updates-table">
 
+		<% if flash[:notice] %>
+		    <div class="update-notice notice"><%= flash[:notice] %></div>
+		<% end %>
+
 		<% @updates.each do |u| %>
 
 			<div class="row">

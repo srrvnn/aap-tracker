@@ -18,6 +18,7 @@ class UpdatesController < ApplicationController
 
     @updates = (@new_updates + @upvoted_updates + @downvoted_updates)
 
+
     # redirect_to project_path(params[:project_id])
   end
 
@@ -48,15 +49,7 @@ class UpdatesController < ApplicationController
       @update.liked_by @current_user
     end
 
-    # if
-    #   @update.unliked_by @current_user
-    # else
-    #   @update.upvote_from @current_user
-    # end
-
-    # @approved_count = @update.approved_count
-    # @update.update_attributes(approved_count: @approved_count + 1)
-
+    flash[:notice] = "Response updated successfully. You have 2 hours to change your choice."
     redirect_to updates_path
   end
 
@@ -74,15 +67,7 @@ class UpdatesController < ApplicationController
       @update.disliked_by @current_user
     end
 
-    # if @current_user.voted_as_when_voted_for @update
-    #   @update.downvote_from @current_user
-    # else
-    #   @update.undisliked_by @current_user
-    # end
-
-    # @rejected_count = @update.rejected_count
-    # @update.update_attributes(rejected_count: @rejected_count + 1)
-
+    flash[:notice] = "Response updated successfully. You have 2 hours to change your choice."
     redirect_to updates_path
   end
 
