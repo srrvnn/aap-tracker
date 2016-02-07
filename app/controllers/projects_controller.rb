@@ -20,14 +20,6 @@ class ProjectsController < ApplicationController
 
     @projects_success = @updates_all_per_project.count{ |p| (@updates_postive_approved_per_project[p[0]] ||= 0) * 2 > p[1] }
 
-    # puts 'POSITIVE PROJECTS'
-    # puts '-----------------'
-    # pp @updates_all_per_project
-    # pp @updates_postive_approved_per_project
-    # pp @projects_success
-
-    # @projects_success = 0
-
     @doughnut_data = [
 
         {
@@ -48,6 +40,26 @@ class ProjectsController < ApplicationController
 
       animation: false
     }
+
+    @last_sunday = Date.today.beginning_of_week(:sunday)
+    @last_last_sunday = Date.today.beginning_of_week(:sunday) - 7.days
+
+    @this_week = {
+
+      projects_with_updates: Update.where("official = ? AND created_at > ?", true, @last_sunday).group("project_id").count.count,
+      official_updates: Update.where("official = ? AND created_at > ?", true, @last_sunday).count,
+      public_all_updates: Update.where("official = ? AND created_at > ?", false, @last_last_sunday)
+    }
+
+    if @this_week["public_all_updates"].nil? then
+      puts "all updates nil"
+      @this_week[:public_updates] = 0
+      @this_week[:irrelevant_updates] = 0
+    else
+      @this_week[:public_updates] = @this_week["public_all_updates"].select{|u| u.count_votes_up > 2}.count
+      @this_week[:irrelevant_updates] = @this_week["public_all_updates"].select{|u| u.count_votes_down > 2}.count
+    end
+
   end
 
   def index

@@ -22,16 +22,16 @@
           This Week </div>
 
         <p> Promises with Responses:
-          <span> 45 / 70 </span>  </p>
+          <span> <%= @this_week[:projects_with_updates] %> / 70 </span>  </p>
 
         <p> Responses from Officials:
-          <span> 123 </span> </p>
+          <span> <%= @this_week[:official_updates] %> </span> </p>
 
         <p> Responses from People:
-          <span> 456 </span> </p>
+          <span>  <%= @this_week[:public_updates] %> </span> </p>
 
         <p> Responses marked Irrelevant:
-          <span> 10845 </span> </p>
+          <span>  <%= @this_week[:irrelevant_updates] %> </span> </p>
 
         <div class="links">
           <%= link_to "PROMISES", projects_path, id: "enter-button" %>
