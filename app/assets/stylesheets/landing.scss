@@ -11,88 +11,93 @@
   letter-spacing: 6.12px;
 }
 
-/*Landing page*/
+
 #landing {
-  width: 100%;
-  text-align: center;
-  background: image-url("women_voting.png");
-  background-size: cover;
-  background-attachment: fixed;
+
+    width: 100%;
+    text-align: center;
+    background: image-url("women_voting.png");
+    background-size: cover;
+    background-attachment: fixed;
 }
 
-
 #landing-content {
+
   position: relative;
   top: 70px;
   padding: 100px 0;
 }
 
-#landing-content .heading {
+#landing-content .heading p {
 
-    font-size: 54px;
-    text-transform: uppercase;
-    font-weight: 800;
-    padding: 10px 20px;
-    border-bottom: 1px solid white;
-    text-align: left;
-    margin: 20px 0;
+    font-size: 32px;
+    display: inline-block;
+    padding: 5px 30px;
+    margin: 10px 0;
+    border-bottom: 3px solid white;
+    text-align: center;
 }
 
-#landing-content .positive-chart {
+#landing-content > .chart,
+#landing-content .text {
 
     margin-top: 100px;
-    padding-right: 100px;
 }
 
-#landing-content .positive-chart  p {
+#landing-content .chart  p {
 
-    color: white;
+    margin: 35px 10px;
+    font-size: 30px;
+    line-height: 60px;
+    text-align: center;
     text-transform: uppercase;
-    margin: 40px;
-    font-size: 16px;
 }
 
-#landing-content .numbers {
+#landing-content .text {
 
   text-align: left;
+  text-transform: uppercase;
 }
 
-#landing-content .numbers {
+#landing-content .text {
 
   font-size: 20px;
   color: white;
 }
 
-#landing-content .numbers p {
+#landing-content .text {
 
-    margin: 15px;
-    position: relative;
-    text-align: left;
-    width: auto;
     display: block;
-    font-size: 28px;
-    line-height: 80px;
+    font-size: 30px;
+    line-height: 60px;
+    text-align: center;
+    text-transform: uppercase;
 }
 
-#landing-content .numbers p > span {
+#landing-content .text .number {
 
-  font-size: 54px;
-  float: right;
+    text-align: right;
+    padding-right: 30px;
 }
 
-#landing-title {
-  margin-top: 0;
-  color: white;
-  font-family: 'Lato', sans-serif;
-  font-size: 55px;
-  letter-spacing: 9.62px;
-  text-align: center;
+#landing-content .text .status {
+
+    text-align: left;
+    padding-left: 30px;
+}
+
+
+#landing-content .text .number,
+#landing-content .text .status {
+
+    margin: 10px 0;
 }
 
 .links {
 
   display: flex;
   justify-content: center;
+  margin: 30px 0;
 }
 
 #enter-button {
@@ -114,7 +119,7 @@
   &:hover,
   &:focus {
     text-decoration: none;
-  }
+}
 }
 
 /*About*/

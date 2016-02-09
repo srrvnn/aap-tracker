@@ -20,19 +20,46 @@ class ProjectsController < ApplicationController
 
     @projects_success = @updates_all_per_project.count{ |p| (@updates_postive_approved_per_project[p[0]] ||= 0) * 2 > p[1] }
 
-    @doughnut_data = [
 
+    @count = {}
+
+    @projects = Project.order(:sno)
+    @count["total"] = @projects.count
+    @count["uninitiated"] = @projects.where("status = ?", Project::STATUSES["Not Started"]).count
+    @count["initiated"] = @projects.where("status = ?", Project::STATUSES["In Progress"]).count
+    @count["blocked"] = @projects.where("status = ?", Project::STATUSES["Partially Fulfilled"]).count
+    @count["fulfilled"] = @projects.where("status = ?", Project::STATUSES["Fulfilled"]).count
+
+    @percent = {}
+
+    @percent["initiated"] = @count["total"] == 0 ? 0 : @count["initiated"] * 100 / @count["total"]
+    @percent["blocked"] = @count["total"] == 0 ? 0 : @count["blocked"] * 100 / @count["total"]
+    @percent["fulfilled"] = @count["total"] == 0 ? 0 : @count["fulfilled"] * 100 / @count["total"]
+
+    @doughnut_data = [
         {
-            value: @projects_success,
+            value: @count["fulfilled"],
             color: "#46BFBD",
             highlight: "#5AD3D1",
-            label: "Promises with Positive Public Responses"
+            label: "Fulfilled Promises"
         },
         {
-            value: 70 - @projects_success,
+            value: @count["blocked"],
+            color: "#428BCA",
+            highlight: "#619ed3",
+            label: "Partially Fulfilled Promises"
+        },
+        {
+            value: @count["initiated"],
+            color: "#e8d806",
+            highlight: "#faeb2f",
+            label: "In Progress Promises"
+        },
+        {
+            value: @count["uninitiated"],
             color:"#ECECEC",
             highlight: "#F6F6F6",
-            label: "Others"
+            label: "To Be Started Promises"
         }
     ]
 
@@ -203,3 +230,4 @@ class ProjectsController < ApplicationController
     redirect_to root_path and return unless (@current_user && @current_user.volunteer)
   end
 end
+

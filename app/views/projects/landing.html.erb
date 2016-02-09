@@ -3,38 +3,36 @@
 
     <div id="landing-content" class="row">
 
-      <div class="positive-chart col-md-6 col-sm-12">
+      <div class="chart col-md-5 col-sm-12">
         <%= doughnut_chart @doughnut_data, @doughtnut_options %>
 
-        <% if @projects_success > 0 %>
+          </div>
 
-          <p> Promises in green are those with more than 50% positive public responses over time. </p>
+      <div class="text col-md-7 col-sm-12">
 
-        <% elsif %>
+        <div class="row numbers">
 
-          <p> Promises will appear in green after a majority positive response from the public. </p>
+          <div class="col-md-12 heading">
+            <p> Status of AAP's 70 promises </p> </div>
 
-        <% end %> </div>
+          <div class="number col-md-4"> <%= @percent["fulfilled"] %> % </div>
+            <div class="status col-md-8"> promises fulfilled </div>
 
-      <div class="numbers col-md-6 col-sm-12">
+          <div class="number col-md-4"> <%= @percent["blocked"] %> % </div>
+            <div class="status col-md-8"> partially fulfilled </div>
 
-        <div class="heading">
-          This Week </div>
+          <div class="number col-md-4"> <%= @percent["initiate"] ||= 0 %> % </div>
+            <div class="status col-md-8"> in progress </div>
 
-        <p> Promises with Responses:
-          <span> <%= @this_week[:projects_with_updates] %> / 70 </span>  </p>
-
-        <p> Responses from Officials:
-          <span> <%= @this_week[:official_updates] %> </span> </p>
-
-        <p> Responses from People:
-          <span>  <%= @this_week[:public_updates] %> </span> </p>
-
-        <p> Responses marked Irrelevant:
-          <span>  <%= @this_week[:irrelevant_updates] %> </span> </p>
+        </div>
 
         <div class="links">
-          <%= link_to "PROMISES", projects_path, id: "enter-button" %>
+          <% if current_user && current_user.volunteer %>
+              <%= link_to "PROMISES", projects_path, id: "enter-button" %>
+          <% elsif %>
+              <%= link_to "SEE ALL PROMISES", projects_path, id: "enter-button" %>
+          <% end %>
+
           <% if current_user && current_user.volunteer %>
               <%= link_to "RESPONSES", updates_path, id: "enter-button" %>
           <% end %>
@@ -54,6 +52,7 @@
 
   <ul>
 
+    <li> Responses this Week: &nbsp;&nbsp; <%= @this_week[:official_updates] %> Official &mdash; <%= @this_week[:public_updates]%> Public &mdash; <%= @this_week[:irrelevant_updates]%> Irrelevant
     <li> <%= link_to "About", "/pages/about" %> </li>
     <li> <%= link_to "Privacy Policy", "/pages/privacy.html" %> </li>
 
