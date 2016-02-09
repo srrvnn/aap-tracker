@@ -29,9 +29,11 @@
 
         <% unless current_user && current_user.official %>
             <div class="form-group">
-                <%= label_tag(:update_positive_true, "Positive Response:") %>
+                <%= fa_icon "thumbs-o-up" %>
+                <%= label_tag(:update_positive_true, "Satisified with Progress:")%>
                 <%= f.radio_button("positive", "true") %>
-                <%= label_tag(:update_positive_false, "Negative Response:") %>
+                <%= fa_icon "thumbs-o-down" %>
+                <%= label_tag(:update_positive_false, "Not Satisified:") %>
                 <%= f.radio_button("positive", "false") %> </div>
         <% end %>
 
