@@ -227,7 +227,7 @@ class ProjectsController < ApplicationController
 
   def check_access
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
-    redirect_to root_path and return unless (@current_user && @current_user.volunteer)
+    redirect_to root_path and return unless (@current_user && @current_user.official)
   end
 end
 
