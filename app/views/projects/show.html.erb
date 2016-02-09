@@ -79,7 +79,7 @@
 
                 <% if u.url.present? %>
                     <%= fa_icon "external-link", {class: "fa-proof"} %>
-                    <%= link_to "Proof", u.url%>
+                    <%= link_to "Proof", u.url, :target => "_blank"%>
                 <% end %>
 
             </div>
