@@ -20,16 +20,16 @@
     <div class="project-progress">
 
       <div class="project-progress-bar background-green" style="width: <%= @percent["fulfilled"] %>%;">
-        <%= link_to '', projects_path(:status => "Fulfilled"), title: 'See Fulfilled Promises', rel: 'tooltip', class: "project-progress-link" %> </div>
+        <%= link_to '', projects_path(:status => "Fulfilled"), title: 'See ' + @percent["fulfilled"].to_s + '% Fulfilled Promises', rel: 'tooltip', class: "project-progress-link" %> </div>
 
       <div class="project-progress-bar background-blue"  style="width: <%= @percent["blocked"] %>%;">
-        <%= link_to '', projects_path(:status => "Partially Fulfilled"), title: 'See Partially Fulfilled Promises', rel: 'tooltip', class: "project-progress-link" %> </div>
+        <%= link_to '', projects_path(:status => "Partially Fulfilled"), title: 'See ' + @percent["blocked"].to_s + '% Partially Fulfilled Promises', rel: 'tooltip', class: "project-progress-link" %> </div>
 
       <div class="project-progress-bar background-yellow" style="width: <%= @percent["initiated"] %>%;">
-        <%= link_to '', projects_path(:status => "In Progress"), title: 'See In Progress Promises', rel: 'tooltip', class: "project-progress-link" %> </div>
+        <%= link_to '', projects_path(:status => "In Progress"), title: 'See ' + @percent["initiated"].to_s + '% In Progress Promises', rel: 'tooltip', class: "project-progress-link" %> </div>
 
       <div class="project-progress-bar background-red"  style="width: <%= @percent["uninitiated"] %>%;">
-        <%= link_to '', projects_path(:status => "Not Started"), title: 'See Not Started Promises', rel: 'tooltip', class: "project-progress-link" %> </div>
+        <%= link_to '', projects_path(:status => "Not Started"), title: 'See ' + @percent["uninitiated"].to_s + '% Not Started Promises', rel: 'tooltip', class: "project-progress-link" %> </div>
 
     </div>
 
