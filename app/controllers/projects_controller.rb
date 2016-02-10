@@ -35,25 +35,26 @@ class ProjectsController < ApplicationController
     @percent["initiated"] = @count["total"] == 0 ? 0 : @count["initiated"] * 100 / @count["total"]
     @percent["blocked"] = @count["total"] == 0 ? 0 : @count["blocked"] * 100 / @count["total"]
     @percent["fulfilled"] = @count["total"] == 0 ? 0 : @count["fulfilled"] * 100 / @count["total"]
+    @percent["uninitiated"] = @count["total"] == 0 ? 0 : 100 - @percent["initiated"] - @percent["blocked"] - @percent["fulfilled"]
 
     @doughnut_data = [
         {
-            value: @count["fulfilled"],
+            value: @count["fulfilled"] + @count["blocked"],
             color: "#46BFBD",
             highlight: "#5AD3D1",
-            label: "Fulfilled Promises"
+            label: "Promises Kept"
         },
-        {
-            value: @count["blocked"],
-            color: "#428BCA",
-            highlight: "#619ed3",
-            label: "Partially Fulfilled Promises"
-        },
+        # {
+        #     value: @count["blocked"],
+        #     color: "#428BCA",
+        #     highlight: "#619ed3",
+        #     label: "Partially Fulfilled Promises"
+        # },
         {
             value: @count["initiated"],
             color: "#e8d806",
             highlight: "#faeb2f",
-            label: "In Progress Promises"
+            label: "Work in Progress"
         },
         {
             value: @count["uninitiated"],
