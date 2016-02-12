@@ -10,22 +10,6 @@
 
       <div class="text col-md-7 col-sm-12">
 
-        <div class="row numbers">
-
-          <div class="col-md-12 heading">
-            <p> Status of AAP's 70 promises </p> </div>
-
-          <div class="number col-md-4"> <%= @percent["fulfilled"] + @percent["fulfilled"] %> % </div>
-            <div class="status col-md-8"> promises kept </div>
-
-          <div class="number col-md-4"> <%= @percent["initiated"] ||= 0 %> % </div>
-            <div class="status col-md-8"> in progress </div>
-
-          <div class="number col-md-4"> <%= @percent["uninitiated"] %> % </div>
-            <div class="status col-md-8"> to be started </div>
-
-        </div>
-
         <div class="links">
           <% if current_user && current_user.volunteer %>
               <%= link_to "PROMISES", projects_path, id: "enter-button" %>
@@ -40,6 +24,24 @@
               <%= link_to fa_icon("users"), users_path, id: "enter-button" %>
           <% end %>
         </div>
+
+        <div class="row numbers">
+
+          <div class="col-md-12 heading">
+            <p> Status of AAP's 70 promises </p> </div>
+
+            <div class="status col-md-7"> promises kept </div>
+          <div class="number col-md-3"> <%= @percent["fulfilled"] + @percent["blocked"] %> % </div>
+
+            <div class="status col-md-7"> in progress </div>
+          <div class="number col-md-3"> <%= @percent["initiated"] ||= 0 %> % </div>
+
+            <div class="status col-md-7"> to be started </div>
+          <div class="number col-md-3"> <%= @percent["uninitiated"] %> % </div>
+
+        </div>
+
+
 
       </div>
 

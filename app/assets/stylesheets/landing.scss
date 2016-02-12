@@ -11,15 +11,20 @@
   letter-spacing: 6.12px;
 }
 
+$landingColor: white;
+$landingOpacity: 0.9;
 
 #landing {
 
     width: 100%;
     text-align: center;
-    background: image-url("women_voting.png");
+    // background: image-url("women_voting.png");
+    background: image-url("ak.jpg");
+    // background: image-url("man_paper.png");
     background-size: cover;
     background-attachment: fixed;
 }
+
 
 #landing-content {
 
@@ -34,14 +39,16 @@
     display: inline-block;
     padding: 5px 30px;
     margin: 10px 0;
-    border-bottom: 3px solid white;
+    border-bottom: 3px solid $landingColor;
     text-align: center;
+    font-weight: 900;
 }
 
 #landing-content > .chart,
 #landing-content .text {
 
     margin-top: 100px;
+    opacity: $landingOpacity;
 }
 
 #landing-content .chart  p {
@@ -55,14 +62,11 @@
 
 #landing-content .text {
 
+  font-size: 20px;
+  color: $landingColor;
   text-align: left;
   text-transform: uppercase;
-}
-
-#landing-content .text {
-
-  font-size: 20px;
-  color: white;
+  margin-top: 0;
 }
 
 #landing-content .text {
@@ -72,18 +76,19 @@
     line-height: 60px;
     text-align: center;
     text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 #landing-content .text .number {
 
     text-align: right;
-    padding-right: 30px;
+    padding-left: 30px;
 }
 
 #landing-content .text .status {
 
-    text-align: left;
-    padding-left: 30px;
+    text-align: right;
+    padding-right: 30px;
 }
 
 
@@ -91,6 +96,7 @@
 #landing-content .text .status {
 
     margin: 10px 0;
+    font-weight: bold;
 }
 
 .links {
@@ -104,8 +110,8 @@
 
   position: relative;
   /* top: 20px; */
-  color: white;
-  border: 3px solid white;
+  color: $landingColor;
+  border: 3px solid $landingColor;
   border-radius: 5px;
   /* width: 215px; */
   /* height: 60px; */
@@ -115,6 +121,8 @@
   letter-spacing: 1px;
   display: inline-block;
   margin: 15px;
+  font-weight: 900;
+  letter-spacing: 2px;
 
   &:hover,
   &:focus {
