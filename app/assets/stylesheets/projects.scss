@@ -139,10 +139,12 @@
 .project-progress {
   overflow: hidden;
   height: 35px;
-  margin: 50px 0;
+  margin: 50px 0 30px 0;
   background-color: #D8D8D8;
   border-radius: 4px;
 }
+
+
 
 .project-progress-bar {
   color:white;
@@ -349,4 +351,20 @@
   margin: 10px 15px;
   /* min-width: 152px; */
   font-size: 18px;
+}
+
+.project-progress-legend {
+
+  margin: 30px 0 50px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.project-progress-bar.project-progress-legend-item {
+
+  width: 200px;
+  margin: 0 5px;
+  padding: 0 10px;
+  border-radius: 5px;
+  text-align: center;
 }

@@ -51,6 +51,22 @@
 
     </div>
 
+    <div class="project-progress-legend">
+
+      <div class="project-progress-bar project-progress-legend-item background-green">
+        <%= @percent["fulfilled"].to_s + '% Fulfilled' %> </div>
+
+      <div class="project-progress-bar project-progress-legend-item background-blue" >
+        <%= @percent["blocked"].to_s + '% Partially Fulfilled' %> </div>
+
+      <div class="project-progress-bar project-progress-legend-item background-yellow">
+        <%= @percent["initiated"].to_s + '% In Progress' %> </div>
+
+      <div class="project-progress-bar project-progress-legend-item background-red" >
+        <%= @percent["uninitiated"].to_s + '% Not Started' %> </div>
+
+    </div>
+
   </div>
 
   <div class="col-md-12">
