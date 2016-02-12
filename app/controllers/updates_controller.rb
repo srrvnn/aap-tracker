@@ -99,7 +99,11 @@ class UpdatesController < ApplicationController
 
   def update
   	@update = Update.find(params[:id])
-    @update.update_attributes update_params
+    if verify_recaptcha(model: @update)
+      if @current_user && @current_user.official
+        @update.update_attributes update_params
+      end
+    end
     redirect_to project_path(update_params[:project_id])
   end
 

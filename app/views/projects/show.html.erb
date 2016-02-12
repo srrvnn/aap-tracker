@@ -63,7 +63,7 @@
 
                 <!-- <h5> <%= u.title %> </h5> -->
 
-                <span class="updated-at"> <%= u.updated_at %> </span>
+                <span class="updated-at"> <%= u.event_occured %> </span>
 
                 <% if u.official? %>
                     <span class="updated-at"> &mdash; Official </span>
@@ -71,9 +71,9 @@
 
                 <!-- <span class="updated-at"> Positive: <%= u.positive %> </span> -->
 
-                <!-- <% if true %> -->
-                    <!-- <%= link_to "Edit", { controller: "updates", action: "edit", project_id: @project.id, id: u.id }, class: "edit"  %> -->
-                <!-- <% end %> -->
+                <% if current_user && current_user.official? %>
+                    <%= link_to "Edit", { controller: "updates", action: "edit", project_id: @project.id, id: u.id }, class: "edit"  %>
+                <% end %>
 
                 <p> <%= u.description %> </p>
 
