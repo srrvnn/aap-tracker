@@ -92,19 +92,27 @@ class ProjectsController < ApplicationController
 
   def index
 
-    @projects = Project.order(:sno)
+    @categories = Category.all
+    @projects = Project.includes(:categories).order(:sno)
+
+    @filter = ''
 
     if params[:search].present?
+      @filter += ' keyword:' + params[:search]
       @projects = Project.where("LOWER(description) LIKE LOWER(?)", "%#{params[:search]}%").order(:sno)
     end
 
-    if params[:category].present?
+    if params[:status].present?
+      @filter += ' status:' + params[:status]
       @projects = @projects.where("status = ?", Project::STATUSES[params[:status]])
     end
 
-    if params[:status].present?
-      @projects = @projects.where("status = ?", Project::STATUSES[params[:status]])
+    if params[:category].present?
+      @category = Category.find(params[:category])
+      @filter += ' tagged:' + @category.name
+      @projects = @projects.where("categories.id" => params[:category])
     end
+
 
     @count = {}
 

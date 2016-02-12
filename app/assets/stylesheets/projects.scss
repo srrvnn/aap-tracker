@@ -230,13 +230,6 @@
   margin: 10px 0;
 }
 
-.project-search-row .project-message i,
-.project-search-row .project-message b {
-
-  display: inline-block;
-  padding: 0 10px;
-}
-
 .project-row:hover {
 
     background: #eee;
@@ -340,4 +333,20 @@
 
   margin-top: 40px;
   list-style: none;
+}
+
+.project-categories {
+
+  display: flex;
+  justify-content: center;
+  /* max-width: 100%; */
+  flex-wrap: wrap;
+}
+
+.project-category {
+
+  display: inline-block;
+  margin: 10px 15px;
+  /* min-width: 152px; */
+  font-size: 18px;
 }

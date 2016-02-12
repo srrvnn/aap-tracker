@@ -13,6 +13,24 @@
 
     </div>
 
+  <div class="project-categories">
+
+      <div class="project-category heading">
+
+        Categories:
+
+      </div>
+
+    <% @categories.each do |c| %>
+
+      <div class="project-category">
+
+          <%= link_to c.name, projects_path(:category => c.id) %> </div>
+
+    <% end %>
+
+  </div>
+
   <div class="col-md-12 project-charts">
 
     <!-- <%= line_chart @data, @options %> -->
@@ -37,13 +55,14 @@
 
   <div class="col-md-12">
 
-    <% if (params[:search] || params[:status]) %>
+    <% if (params[:search] || params[:status] || params[:category]) %>
 
       <div class="row project-search-row">
 
         <div class="col-md-10 project-message">
 
-          Searching for <i>&mdash;<%= params[:search] ||= 'all promises' %>&mdash;</i> with <b>&mdash;<%= params[:status] ||= 'any' %>&mdash;</b> status: </div>
+          <i> Seeing promises &mdash; <%= @filter %> </i> <span style="margin: 0 10px;"> <%= link_to "clear all filters", projects_path %> </span> </div>
+
 
       </div>
 
@@ -70,7 +89,7 @@
 
         <div class="col-md-10 project-message">
 
-              Go back to seeing <%= link_to "All Promises", projects_path %>.
+              <%= link_to "See All Promises", projects_path %>
 
            </div>
 
