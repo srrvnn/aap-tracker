@@ -63,11 +63,7 @@
 
                 <!-- <h5> <%= u.title %> </h5> -->
 
-                <span class="updated-at"> <%= u.event_occured %> </span>
-
-                <% if u.official? %>
-                    <span class="updated-at"> &mdash; Official </span>
-                <% end %>
+                <span class="updated-at"> <%= u.event_occured.to_time.strftime('%Y / %B / %d at %I:%M %p') %> </span>
 
                 <!-- <span class="updated-at"> Positive: <%= u.positive %> </span> -->
 
@@ -75,7 +71,9 @@
                     <%= link_to "Edit", { controller: "updates", action: "edit", project_id: @project.id, id: u.id }, class: "edit"  %>
                 <% end %>
 
-                <p> <%= u.description %> </p>
+                <p>
+                    <% if u.official? %> <span class="official"> Official &mdash; </span> <% end %>
+                    <%= u.description %> </p>
 
                 <% if u.url.present? %>
                     <%= fa_icon "external-link", {class: "fa-proof"} %>
