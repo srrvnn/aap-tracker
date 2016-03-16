@@ -2,7 +2,8 @@ require 'pp'
 
 class UpdatesController < ApplicationController
     before_action :check_user
-    before_action :check_access, only: [:index, :edit, :delete, :approve, :reject]
+    before_action :check_volunteer_access, only: [:index, :delete, :approve, :reject]
+    before_action :check_official_access, only: [:edit]
 
   def index
 
@@ -122,9 +123,14 @@ class UpdatesController < ApplicationController
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  def check_access
+  def check_volunteer_access
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
     redirect_to root_path and return unless (@current_user && @current_user.volunteer)
+  end
+
+  def check_official_access
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    redirect_to root_path and return unless (@current_user && @current_user.official)
   end
 
 end

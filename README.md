@@ -33,7 +33,7 @@ Tracker web application.
 
 ##### Run the server:
 
-        bin/rails server
+        rails server or rails s
 
         open http://localhost:3000
 
